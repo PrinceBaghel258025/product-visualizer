@@ -42,6 +42,11 @@ export const HorizontalScrollWrapper = ({ children }) => {
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
       overflow={"auto"}
+      css={{
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+      }}
       gap={2}
       cursor={"grabbing"}
       w={"100%"}

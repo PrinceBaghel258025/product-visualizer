@@ -30,16 +30,16 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
 };
 
 export const Scene = () => {
-  const [isInsideSphere, setIsInsideSphere] = useState(false);
+  const [isInsideSphere, setIsInsideSphere] = useState(true);
 
   return (
     <Box w={"100vw"} h={"100vh"}>
-      <Canvas camera={{ position: [0, 0, 2], fov: 70 }}>
+      <Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
         <ambientLight intensity={0.1} />
         <Suspense fallback={null}>
           <Sphere />
         </Suspense>
-        <OrbitControls enableRotate={true} enableZoom={true} />
+        <OrbitControls enableRotate={true} enableZoom={false} />
         <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
       </Canvas>
       {isInsideSphere && <DraggableDrawer />}
