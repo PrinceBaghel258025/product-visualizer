@@ -1,0 +1,43 @@
+[
+  {
+    "sphereName": "Sphere1",
+    "sphereInfo": [
+      {
+        "type": "360_image",
+        "img_urls": "https://s3_url/img_name.jpg"
+      },
+
+      {
+        "type": "header",
+        "text": "This is a header"
+      },
+
+      {
+        "type": "text_content",
+        "text_header": "Hello",
+        "text_content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
+      },
+
+      {
+        "type": "media_content",
+        "img_urls": [
+          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
+          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
+          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
+          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996"
+        ]
+      },
+
+      {
+        "type": "social_links",
+        "social": [
+          {
+            "media_house": "Youtube",
+            "thumbnail": "https://s3/img.jpg",
+            "redirect_link": "https://www.youtube.com/"
+          }
+        ]
+      }
+    ]
+  }
+]

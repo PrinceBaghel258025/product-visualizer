@@ -41,8 +41,11 @@ export const HorizontalScrollWrapper = ({ children }) => {
       onMouseLeave={onMouseLeave}
       onMouseUp={onMouseUp}
       onMouseMove={onMouseMove}
-      overflow={"hidden"}
+      overflow={"auto"}
       gap={2}
+      cursor={"grabbing"}
+      w={"100%"}
+      h={"fit-content"}
     >
       {children}
     </Flex>
