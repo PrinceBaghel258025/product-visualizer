@@ -3,9 +3,11 @@
 import React from "react";
 import { Header } from "./Header";
 import { TextContent } from "./TextContent";
-import { MediaContent } from "./MediaContent";
+import { ImageContent } from "./ImageContent";
 import { SocialLinks } from "./SocialLinks";
 import { Image, Stack, Text, VStack } from "@chakra-ui/react";
+import RedirectButton from "./RedirectButton";
+import VideoContent from "./VideoContent";
 
 export const DrawerInfo = () => {
   return (
@@ -20,9 +22,9 @@ export const DrawerInfo = () => {
         },
       }}
       justifyContent={"space-between"}
-      mb={10}
+      pt={10}
     >
-      <VStack alignItems={"start"}>
+      <VStack alignItems={"start"} spacing={5}>
         <Header headerTitle={"Welcome to our Farm!"} />
 
         <TextContent
@@ -32,16 +34,11 @@ export const DrawerInfo = () => {
        a recus`}
         />
 
-        <MediaContent
+        <ImageContent
           media={[
             "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
             "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
             "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg",
-            "https://pyt-blogs.imgix.net/2020/05/49727809908_a769f2d7c3_k.jpg?auto=format&fit=scale&h=578&ixlib=php-3.3.0&w=1024&wpsize=large",
-            "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
-            "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
-            "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg",
-            "https://pyt-blogs.imgix.net/2020/05/49727809908_a769f2d7c3_k.jpg?auto=format&fit=scale&h=578&ixlib=php-3.3.0&w=1024&wpsize=large",
           ]}
         />
 
@@ -50,19 +47,33 @@ export const DrawerInfo = () => {
           textContent={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus 
       recusandae ab architecto voluptatum.`}
         />
-        <MediaContent
+
+        <VideoContent
           media={[
-            "https://pyt-blogs.imgix.net/2020/05/49727809908_a769f2d7c3_k.jpg?auto=format&fit=scale&h=578&ixlib=php-3.3.0&w=1024&wpsize=large",
+            "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
           ]}
         />
+
+        <RedirectButton label={"Click Me!"} link={"https://www.google.com"} />
       </VStack>
 
-      <VStack>
+      <VStack spacing={0}>
         <SocialLinks
           socialLinks={[
-            "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
-            "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
-            "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+            {
+              id: 1,
+              label: "Youtube",
+              url: "https://www.youtube.com/",
+              thumbnail:
+                "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+            },
+            {
+              id: 2,
+              label: "Youtube",
+              url: "https://www.youtube.com/",
+              thumbnail:
+                "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+            },
           ]}
         />
 

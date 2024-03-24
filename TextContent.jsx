@@ -3,8 +3,10 @@ import React from "react";
 
 export const TextContent = ({ headerTitle, textContent }) => {
   return (
-    <Stack>
-      <Text fontSize={"medium"}>{headerTitle}</Text>
+    <Stack spacing={1}>
+      <Text fontSize={"medium"} fontWeight={500}>
+        {headerTitle}
+      </Text>
 
       <Text fontSize={"small"} align={"justify"}>
         {textContent}
