@@ -5,7 +5,7 @@ import { OrbitControls, useTexture } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import React, { Suspense, useState } from "react";
 import * as THREE from "three";
-import { DraggableDrawer } from "./DraggableDrawer";
+import { HeroSection } from "./HeroSection";
 
 const Sphere = () => {
   const texture = useTexture(
@@ -42,7 +42,7 @@ export const Scene = () => {
         <OrbitControls enableRotate={true} enableZoom={false} />
         <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
       </Canvas>
-      {isInsideSphere && <DraggableDrawer />}
+      {isInsideSphere && <HeroSection />}
     </Box>
   );
 };
