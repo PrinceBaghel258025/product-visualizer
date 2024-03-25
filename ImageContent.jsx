@@ -1,8 +1,10 @@
 "use client";
 
-import { Image } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 import React from "react";
-import { HorizontalScrollWrapper } from "./generic/HorizontalScrollWrapper";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const ImageContent = ({ media }) => {
   const splitMedia = (media) => {
@@ -12,15 +14,26 @@ export const ImageContent = ({ media }) => {
 
   const { images } = splitMedia(media);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
   return (
     <>
-      <HorizontalScrollWrapper>
-        {images?.length === 1 ? (
-          <Image w={"90vw"} borderRadius={8} src={images[0]} />
-        ) : (
-          images?.map((img) => <Image h={"9rem"} borderRadius={8} src={img} />)
-        )}
-      </HorizontalScrollWrapper>
+      {images?.length === 1 ? (
+        <Image w={"100%"} borderRadius={8} src={images[0]} />
+      ) : (
+        <HStack as={Slider} {...settings} width={"100%"} my={3}>
+          {images?.map((img) => (
+            <Image key={img} h={"11rem"} borderRadius={8} src={img} />
+          ))}
+        </HStack>
+      )}
     </>
   );
 };

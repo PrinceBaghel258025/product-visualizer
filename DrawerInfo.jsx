@@ -8,11 +8,11 @@ import { SocialLinks } from "./SocialLinks";
 import { Image, Stack, Text, VStack } from "@chakra-ui/react";
 import RedirectButton from "./RedirectButton";
 import VideoContent from "./VideoContent";
+import { BusinessPartner } from "./BusinessPartner";
 
 export const DrawerInfo = () => {
   return (
     <Stack
-      h={"80vh"}
       zIndex={100}
       p={3}
       overflowY={"scroll"}
@@ -22,7 +22,8 @@ export const DrawerInfo = () => {
         },
       }}
       justifyContent={"space-between"}
-      pt={10}
+      mt={"4rem"}
+      mb={"2rem"}
     >
       <VStack alignItems={"start"} spacing={5}>
         <Header headerTitle={"Welcome to our Farm!"} />
@@ -48,8 +49,51 @@ export const DrawerInfo = () => {
       recusandae ab architecto voluptatum.`}
         />
 
+        <BusinessPartner
+          partner={[
+            {
+              id: 1,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+            {
+              id: 2,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+            {
+              id: 3,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+            {
+              id: 4,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+            {
+              id: 5,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+            {
+              id: 6,
+              partner: "Ramu",
+              img_url:
+                "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
+            },
+          ]}
+        />
+
         <VideoContent
           media={[
+            "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
+            "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
             "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
           ]}
         />

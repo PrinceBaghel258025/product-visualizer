@@ -1,8 +1,10 @@
 "use client";
 
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, HStack, Text } from "@chakra-ui/react";
 import React from "react";
-import { HorizontalScrollWrapper } from "./generic/HorizontalScrollWrapper";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const VideoContent = ({ media }) => {
   const splitMedia = (media) => {
@@ -11,8 +13,17 @@ const VideoContent = ({ media }) => {
   };
 
   const { videos } = splitMedia(media);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
   return (
-    <HorizontalScrollWrapper>
+    <>
       {videos?.length === 1 ? (
         <Flex borderRadius={"1rem"}>
           <video
@@ -24,10 +35,10 @@ const VideoContent = ({ media }) => {
             loop
             muted="true"
           />
-          <Text w={"90vw"} />
+          <Text w={"16rem"} h={"9rem"} display={"none"} />
         </Flex>
       ) : (
-        <>
+        <HStack as={Slider} {...settings} width={"100%"} my={3}>
           {videos?.map((video) => (
             <Flex key={video} borderRadius={"1rem"}>
               <video
@@ -39,12 +50,12 @@ const VideoContent = ({ media }) => {
                 loop
                 muted="true"
               />
-              <Text w={"16rem"} h={"9rem"} />
+              <Text w={"16rem"} h={"9rem"} display={"none"} />
             </Flex>
           ))}
-        </>
+        </HStack>
       )}
-    </HorizontalScrollWrapper>
+    </>
   );
 };
 

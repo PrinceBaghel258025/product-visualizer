@@ -10,6 +10,10 @@ import {
   projection,
 } from "../../helper/utils";
 import useWindowSize from "../../helper/useWindowSize";
+import { IconButton } from "@chakra-ui/react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { keyframes } from "@emotion/react";
+import { BrandBanner } from "../BrandBanner";
 
 const threshold = 10;
 const spring = { tension: 247, friction: 27 };
@@ -20,11 +24,12 @@ const [COLLAPSED, HALF_EXPANDED, FULL_EXPANDED] = [0, 1, 2];
 export default function DraggableDrawer({ children }) {
   const { height } = useWindowSize();
   const level = React.useMemo(
-    () => [60, -(height / 2 - 60), -(height - 120), -(height - 120)],
+    () => [0, -(height / 2 - 60) * 1.7, -(height - 120), -(height - 120)],
     [height]
   );
 
   const [current, setCurrent] = React.useState(COLLAPSED);
+  const [isAnimating, setIsAnimating] = React.useState(true);
 
   // Initial value settings
   const [{ y }, set] = useSpring(() => ({
@@ -44,6 +49,10 @@ export default function DraggableDrawer({ children }) {
 
   const bind = useDrag(
     ({ vxvy: [, velocityY], movement: [mx, my], first, last, memo, event }) => {
+      if (first) {
+        setIsAnimating(false);
+      }
+
       event.preventDefault();
       const drawerIsOpen = y.value <= level[HALF_EXPANDED];
       const isClick = last && Math.abs(mx) + Math.abs(my) <= 3 && !drawerIsOpen;
@@ -96,8 +105,14 @@ export default function DraggableDrawer({ children }) {
     { rubberband: true, eventOptions: { passive: false } }
   );
 
+  const pulse = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 1); }
+  50% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+`;
+
   return (
-    <div>
+    <>
       <Backdrop
         as={animated.div}
         onClick={handleDrawerClose}
@@ -108,13 +123,31 @@ export default function DraggableDrawer({ children }) {
         style={{ transform: y.to((y) => `translate3D(0, ${y}px, 0)`) }}
       >
         <Header {...bind()}>
+          <IconButton
+            icon={
+              current === COLLAPSED || current === HALF_EXPANDED ? (
+                <IoIosArrowUp size={40} />
+              ) : current === FULL_EXPANDED ? (
+                <IoIosArrowDown size={40} />
+              ) : null
+            }
+            color={"white"}
+            borderRadius={50}
+            top={-45}
+            bg={"transparent"}
+            _focus={{ bg: "transparent" }}
+            sx={{
+              animation: isAnimating ? `${pulse} 2s infinite` : "none",
+            }}
+          />
           <Handle />
+          <BrandBanner />
         </Header>
         <Body as={animated.div} style={{ height: y.to((y) => Math.abs(y)) }}>
           {children}
         </Body>
       </BottomSheet>
-    </div>
+    </>
   );
 }
 
@@ -122,13 +155,13 @@ const BottomSheet = styled.div`
   touch-action: none;
   will-change: transform;
   position: fixed;
-  top: calc(100vh - 60px);
+  top: calc(100vh - 40px);
   left: 0;
   width: 100%;
   min-height: 100vh;
   border-radius: 18px 18px 0 0;
 
-  background-color: #fff;
+  background-color: rgba(255, 255, 255);
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
   color: #000;
@@ -150,9 +183,9 @@ export const Backdrop = styled.div`
 
 const Header = styled.div`
   width: 100%;
-  height: 30px;
-  z-index: 10000;
   border-radius: 18px 18px 0 0;
+  display: flex;
+  justify-content: center;
 
   cursor: grab;
   &:active {
@@ -169,10 +202,11 @@ const Body = styled.div`
 export const Handle = styled.div`
   width: 4rem;
   height: 0.4rem;
-  background-color: hsla(0, 0%, 0%, 0.1);
+  background-color: hsla(0, 0%, 0%, 0.3);
   border-radius: 9px;
-  top: 12px;
+  top: 10px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 200;
 `;
