@@ -10,7 +10,7 @@ import RedirectButton from "./RedirectButton";
 import VideoContent from "./VideoContent";
 import { BusinessPartner } from "./BusinessPartner";
 
-export const DrawerInfo = () => {
+export const DrawerInfo = ({ data }) => {
   return (
     <Stack
       zIndex={100}
@@ -24,6 +24,7 @@ export const DrawerInfo = () => {
       justifyContent={"space-between"}
       mt={"4rem"}
       mb={"2rem"}
+      spacing={5}
     >
       <VStack alignItems={"start"} spacing={5}>
         <Header headerTitle={"Welcome to our Farm!"} />
@@ -59,31 +60,31 @@ export const DrawerInfo = () => {
             },
             {
               id: 2,
-              partner: "Ramu",
+              partner: "Ramu1",
               img_url:
                 "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
             },
             {
               id: 3,
-              partner: "Ramu",
+              partner: "Ramu2",
               img_url:
                 "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
             },
             {
               id: 4,
-              partner: "Ramu",
+              partner: "Ramu3",
               img_url:
                 "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
             },
             {
               id: 5,
-              partner: "Ramu",
+              partner: "Ramu4",
               img_url:
                 "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
             },
             {
               id: 6,
-              partner: "Ramu",
+              partner: "Ramu5",
               img_url:
                 "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740",
             },
@@ -101,22 +102,20 @@ export const DrawerInfo = () => {
         <RedirectButton label={"Click Me!"} link={"https://www.google.com"} />
       </VStack>
 
-      <VStack spacing={0}>
+      <VStack spacing={2}>
         <SocialLinks
           socialLinks={[
             {
-              id: 1,
               label: "Youtube",
               url: "https://www.youtube.com/",
               thumbnail:
-                "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+                "https://img.freepik.com/free-vector/youtube-player-icon-with-flat-design_23-2147838801.jpg?t=st=1711425566~exp=1711429166~hmac=e195c6dccb08e984deb7d93544a1783f2b3bcb272c13890b8721f2d99ca97a12&w=740",
             },
             {
-              id: 2,
-              label: "Youtube",
-              url: "https://www.youtube.com/",
+              label: "X",
+              url: "https://www.x.com/",
               thumbnail:
-                "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+                "https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?t=st=1711425428~exp=1711429028~hmac=739f76a4ad829b65cda048d73b6936df60db35b4db096d9bf8df26405487ccb4&w=740",
             },
           ]}
         />

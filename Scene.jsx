@@ -29,7 +29,7 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
   return null;
 };
 
-export const Scene = () => {
+export const Scene = ({ data }) => {
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
   return (
@@ -42,7 +42,7 @@ export const Scene = () => {
         <OrbitControls enableRotate={true} enableZoom={false} />
         <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
       </Canvas>
-      {isInsideSphere && <HeroSection />}
+      {isInsideSphere && <HeroSection data={data} />}
     </Box>
   );
 };

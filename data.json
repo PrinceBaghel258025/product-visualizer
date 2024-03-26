@@ -1,40 +1,81 @@
 [
   {
-    "sphereName": "Sphere1",
+    "id": 1,
+    "name": "Sphere1",
     "sphereInfo": [
       {
+        "id": 1,
         "type": "360_image",
-        "img_urls": "https://s3_url/img_name.jpg"
+        "image_url": "https://360-images-v1.s3.ap-south-1.amazonaws.com/1.jpg"
       },
 
-      {
-        "type": "header",
-        "text": "This is a header"
-      },
+      { "id": 2, "type": "header", "header_text": "This is a header" },
 
       {
+        "id": 3,
         "type": "text_content",
-        "text_header": "Hello",
-        "text_content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
+        "header": {
+          "name": "Hello",
+          "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
+        }
       },
 
       {
+        "id": 4,
+        "type": "partners",
+        "partners": [
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          },
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          },
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          },
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          },
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          },
+          {
+            "name": "Ramu",
+            "image_url": "https://img.freepik.com/free-photo/transparent-leaf-with-orange-backlight_23-2148239756.jpg?t=st=1711361074~exp=1711364674~hmac=6af2cd64f6aebc9910a7d4e74cfb9a5fa569eca9e23530d820ee00caa929e149&w=740"
+          }
+        ]
+      },
+
+      {
+        "id": 5,
         "type": "media_content",
-        "img_urls": [
-          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
-          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
-          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996",
-          "https://img.freepik.com/free-vector/film-storyboard-template-video-16-9-storyboard-design-template_1284-53019.jpg?t=st=1710941958~exp=1710945558~hmac=26ef918012b47c017b7fe63d26f62620877b20c639d34a9f05cbf26fcba986b6&w=996"
+        "media_urls": [
+          "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
+          "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
+          "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg",
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4"
         ]
       },
 
       {
         "type": "social_links",
-        "social": [
+        "social_links": [
           {
-            "media_house": "Youtube",
-            "thumbnail": "https://s3/img.jpg",
-            "redirect_link": "https://www.youtube.com/"
+            "label": "Youtube",
+            "url": "https://www.youtube.com/",
+            "thumbnail": "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg"
+          },
+          {
+            "label": "X",
+            "url": "https://www.x.com/",
+            "thumbnail": "https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?t=st=1711425428~exp=1711429028~hmac=739f76a4ad829b65cda048d73b6936df60db35b4db096d9bf8df26405487ccb4&w=740"
           }
         ]
       }

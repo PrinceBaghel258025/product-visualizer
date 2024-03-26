@@ -33,7 +33,7 @@ const VideoContent = ({ media }) => {
             src={videos[0]}
             autoPlay
             loop
-            muted="true"
+            muted
           />
           <Text w={"16rem"} h={"9rem"} display={"none"} />
         </Flex>
@@ -48,7 +48,7 @@ const VideoContent = ({ media }) => {
                 src={video}
                 autoPlay
                 loop
-                muted="true"
+                muted
               />
               <Text w={"16rem"} h={"9rem"} display={"none"} />
             </Flex>

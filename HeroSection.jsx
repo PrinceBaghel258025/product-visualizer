@@ -5,7 +5,7 @@ import { DrawerInfo } from "./DrawerInfo";
 import { FiExternalLink } from "react-icons/fi";
 import DraggableDrawer from "./generic/DraggableDrawer";
 
-export const HeroSection = () => {
+export const HeroSection = ({ data }) => {
   return (
     <>
       <VStack position={"absolute"} top={10} right={5} spacing={3}>
@@ -18,7 +18,7 @@ export const HeroSection = () => {
       </VStack>
 
       <DraggableDrawer>
-        <DrawerInfo />
+        <DrawerInfo data={data} />
       </DraggableDrawer>
     </>
   );
