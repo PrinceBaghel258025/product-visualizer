@@ -15,8 +15,6 @@ export const BusinessPartner = ({ partner }) => {
   };
   return (
     <>
-      <Text>Business Partners</Text>
-
       <Flex w={"100%"} justifyContent={"center"}>
         {partner?.length === 1 ? (
           <Flex
@@ -39,12 +37,12 @@ export const BusinessPartner = ({ partner }) => {
                 w={"100%"}
                 // aspectRatio={"3/2"}
                 objectFit={"contain"}
-                src={partner[0]?.img_url}
+                src={partner[0]?.image_url}
                 alt="profile"
               />
             </Flex>
             <Text mb={0} fontSize={"small"}>
-              {partner[0]?.partner}
+              {partner[0]?.name}
             </Text>
           </Flex>
         ) : (
@@ -71,12 +69,12 @@ export const BusinessPartner = ({ partner }) => {
                     w={"100%"}
                     // aspectRatio={"3/2"}
                     objectFit={"contain"}
-                    src={item?.img_url}
+                    src={item?.image_url}
                     alt="profile"
                   />
                 </Flex>
                 <Text mb={0} fontSize={"small"}>
-                  {item?.partner}
+                  {item?.name}
                 </Text>
               </Flex>
             ))}

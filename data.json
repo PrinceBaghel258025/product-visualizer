@@ -14,7 +14,7 @@
       {
         "id": 3,
         "type": "text_content",
-        "header": {
+        "text_content": {
           "name": "Hello",
           "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
         }
@@ -22,6 +22,16 @@
 
       {
         "id": 4,
+        "type": "image_content",
+        "image_urls": [
+          "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
+          "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
+          "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg"
+        ]
+      },
+
+      {
+        "id": 5,
         "type": "partners",
         "partners": [
           {
@@ -52,12 +62,9 @@
       },
 
       {
-        "id": 5,
-        "type": "media_content",
-        "media_urls": [
-          "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
-          "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
-          "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg",
+        "id": 6,
+        "type": "video_content",
+        "video_urls": [
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4"
@@ -65,6 +72,7 @@
       },
 
       {
+        "id": 7,
         "type": "social_links",
         "social_links": [
           {
