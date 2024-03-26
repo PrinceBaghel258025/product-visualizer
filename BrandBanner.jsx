@@ -1,10 +1,14 @@
 import { Image } from "@chakra-ui/react";
 import React from "react";
 
-export const BrandBanner = () => {
+export const BrandBanner = ({ data }) => {
+  const brandBanner = data[0].sphereInfo.find(
+    (info) => info.type === "brand_banner"
+  );
+
   return (
     <Image
-      src="https://360-images-v1.s3.ap-south-1.amazonaws.com/Woolah_banner2.webp"
+      src={brandBanner?.brand_banner}
       position={"absolute"}
       top={0}
       left={0}

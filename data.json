@@ -13,21 +13,21 @@
 
       {
         "id": 3,
-        "type": "text_content",
-        "text_content": {
-          "name": "Hello",
-          "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
-        }
-      },
-
-      {
-        "id": 4,
         "type": "image_content",
         "image_urls": [
           "https://www.livelaw.in/h-upload/2023/02/08/457819-tea-garden-pti-assam1200x768.jpg",
           "https://www.shutterstock.com/image-photo/assam-tea-garden-grown-lowland-600nw-1250472067.jpg",
           "https://t3.ftcdn.net/jpg/03/10/89/56/360_F_310895608_nwdLX25mCtGxeEkZv4ijqstmPcMnFqVs.jpg"
         ]
+      },
+
+      {
+        "id": 4,
+        "type": "text_content",
+        "text_content": {
+          "name": "Text Content 1",
+          "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
+        }
       },
 
       {
@@ -63,6 +63,15 @@
 
       {
         "id": 6,
+        "type": "text_content",
+        "text_content": {
+          "name": "Text Content 2",
+          "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima quam voluptatibus recusandae ab architecto voluptatum, atque dicta sit assumenda? Aperiam aliquid perspiciatis expedita a recusandae ab error quae modi maiores."
+        }
+      },
+
+      {
+        "id": 7,
         "type": "video_content",
         "video_urls": [
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/videos/Tea-Ad.mp4",
@@ -72,13 +81,20 @@
       },
 
       {
-        "id": 7,
+        "type": "redirect_url",
+        "link": {
+          "label": "Click Me!",
+          "url": "https://www.youtube.com/"
+        }
+      },
+
+      {
         "type": "social_links",
         "social_links": [
           {
             "label": "Youtube",
             "url": "https://www.youtube.com/",
-            "thumbnail": "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg"
+            "thumbnail": "https://img.freepik.com/free-vector/youtube-player-icon-with-flat-design_23-2147838801.jpg?t=st=1711425566~exp=1711429166~hmac=e195c6dccb08e984deb7d93544a1783f2b3bcb272c13890b8721f2d99ca97a12&w=740"
           },
           {
             "label": "X",

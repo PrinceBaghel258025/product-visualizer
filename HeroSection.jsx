@@ -17,7 +17,7 @@ export const HeroSection = ({ data }) => {
         />
       </VStack>
 
-      <DraggableDrawer>
+      <DraggableDrawer data={data}>
         <DrawerInfo data={data} />
       </DraggableDrawer>
     </>

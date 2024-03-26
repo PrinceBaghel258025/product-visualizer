@@ -5,7 +5,7 @@ import { Header } from "./Header";
 import { TextContent } from "./TextContent";
 import { ImageContent } from "./ImageContent";
 import { SocialLinks } from "./SocialLinks";
-import { Image, Stack, Text, VStack } from "@chakra-ui/react";
+import { Image, Stack, Text } from "@chakra-ui/react";
 import RedirectButton from "./RedirectButton";
 import VideoContent from "./VideoContent";
 import { BusinessPartner } from "./BusinessPartner";

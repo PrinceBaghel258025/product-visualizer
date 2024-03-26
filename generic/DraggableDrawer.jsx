@@ -21,7 +21,7 @@ const dampedSpring = { tension: 247, friction: 33 };
 
 const [COLLAPSED, HALF_EXPANDED, FULL_EXPANDED] = [0, 1, 2];
 
-export default function DraggableDrawer({ children }) {
+export default function DraggableDrawer({ children, data }) {
   const { height } = useWindowSize();
   const level = React.useMemo(
     () => [0, -(height / 2 - 60) * 1.7, -(height - 120), -(height - 120)],
@@ -141,7 +141,7 @@ export default function DraggableDrawer({ children }) {
             }}
           />
           <Handle />
-          <BrandBanner />
+          <BrandBanner data={data} />
         </Header>
         <Body as={animated.div} style={{ height: y.to((y) => Math.abs(y)) }}>
           {children}
