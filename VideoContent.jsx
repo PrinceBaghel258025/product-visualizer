@@ -31,9 +31,7 @@ const VideoContent = ({ media }) => {
               borderRadius: "0.5rem",
             }}
             src={videos[0]}
-            autoPlay
-            loop
-            muted
+            controls
           />
           <Text w={"16rem"} h={"9rem"} display={"none"} />
         </Flex>
@@ -46,9 +44,7 @@ const VideoContent = ({ media }) => {
                   borderRadius: "0.5rem",
                 }}
                 src={video}
-                autoPlay
-                loop
-                muted
+                controls
               />
               <Text w={"16rem"} h={"9rem"} display={"none"} />
             </Flex>

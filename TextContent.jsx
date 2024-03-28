@@ -4,8 +4,8 @@ import React from "react";
 export const TextContent = ({ textContent }) => {
   return (
     <>
-      <Stack spacing={1}>
-        <Text fontSize={"medium"} ftextContentontWeight={500}>
+      <Stack spacing={2}>
+        <Text fontSize={"medium"} fontWeight={600}>
           {textContent?.name}
         </Text>
 

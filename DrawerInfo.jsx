@@ -52,17 +52,19 @@ export const DrawerInfo = ({ data }) => {
       <Text
         display={"inline-flex"}
         alignItems={"center"}
-        gap={3}
+        gap={2}
         w={"100%"}
         justifyContent={"center"}
         fontSize={10}
       >
-        Powered by{" "}
-        <Image
-          h={"1rem"}
-          src="https://360-images-v1.s3.ap-south-1.amazonaws.com/Logo_agspeak.png"
-          alt=""
-        />
+        Powered by
+        <a href="https://agspert.com/" target="_blank">
+          <Image
+            h={"1rem"}
+            src="https://360-images-v1.s3.ap-south-1.amazonaws.com/Logo_agspeak.png"
+            alt=""
+          />
+        </a>
       </Text>
     </Stack>
   );

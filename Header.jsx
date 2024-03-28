@@ -3,7 +3,7 @@ import React from "react";
 
 export const Header = ({ headerTitle }) => {
   return (
-    <Text fontSize={"large"} fontWeight={"semibold"} w={"100%"} bg={"white"}>
+    <Text fontSize={"medium"} fontWeight={"semibold"} w={"100%"} bg={"white"}>
       {headerTitle}
     </Text>
   );
