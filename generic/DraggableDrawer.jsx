@@ -11,7 +11,7 @@ import {
 } from "../../helper/utils";
 import useWindowSize from "../../helper/useWindowSize";
 import { IconButton } from "@chakra-ui/react";
-import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import { keyframes } from "@emotion/react";
 import { BrandBanner } from "../BrandBanner";
 
@@ -109,7 +109,7 @@ export default function DraggableDrawer({ children, data }) {
       <Backdrop
         as={animated.div}
         onClick={handleDrawerClose}
-        style={{ opacity: y.to([0, level[2]], [0, 1]) }}
+        style={{ opacity: y.to([0, level[1]], [0, 1]) }}
       />
       <BottomSheet
         as={animated.div}
