@@ -21,6 +21,10 @@ export const ImageContent = ({ media }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
   };
 
   return (

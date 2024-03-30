@@ -32,6 +32,10 @@ const VideoContent = ({ media }) => {
             }}
             src={videos[0]}
             controls
+            autoPlay
+            loop
+            muted
+            playsInline
           />
           <Text w={"16rem"} h={"9rem"} display={"none"} />
         </Flex>
@@ -45,6 +49,10 @@ const VideoContent = ({ media }) => {
                 }}
                 src={video}
                 controls
+                autoPlay
+                loop
+                muted
+                playsInline
               />
               <Text w={"16rem"} h={"9rem"} display={"none"} />
             </Flex>

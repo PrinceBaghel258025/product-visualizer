@@ -22,8 +22,7 @@ export const DrawerInfo = ({ data }) => {
         },
       }}
       justifyContent={"space-between"}
-      mt={"4rem"}
-      mb={"2rem"}
+      mt={"6.5rem"}
       spacing={5}
     >
       {data.map((item) =>

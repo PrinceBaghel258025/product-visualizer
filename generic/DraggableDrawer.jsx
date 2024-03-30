@@ -19,17 +19,16 @@ const threshold = 10;
 const spring = { tension: 247, friction: 27 };
 const dampedSpring = { tension: 247, friction: 33 };
 
-const [COLLAPSED, HALF_EXPANDED, FULL_EXPANDED] = [0, 1, 2];
+const [COLLAPSED, FULL_EXPANDED] = [0, 1];
 
 export default function DraggableDrawer({ children, data }) {
   const { height } = useWindowSize();
   const level = React.useMemo(
-    () => [0, -(height / 2 - 60) * 1.7, -(height - 120), -(height - 120)],
+    () => [0, -(height - 80), -(height - 80)],
     [height]
   );
 
   const [current, setCurrent] = React.useState(COLLAPSED);
-  const [isAnimating, setIsAnimating] = React.useState(true);
 
   // Initial value settings
   const [{ y }, set] = useSpring(() => ({
@@ -38,8 +37,8 @@ export default function DraggableDrawer({ children, data }) {
   }));
 
   const setDrawerOpen = () => {
-    set({ y: level[HALF_EXPANDED], config: dampedSpring, immediate: false });
-    setCurrent(HALF_EXPANDED);
+    set({ y: level[FULL_EXPANDED], config: dampedSpring, immediate: false });
+    setCurrent(FULL_EXPANDED);
   };
 
   const handleDrawerClose = () => {
@@ -49,12 +48,8 @@ export default function DraggableDrawer({ children, data }) {
 
   const bind = useDrag(
     ({ vxvy: [, velocityY], movement: [mx, my], first, last, memo, event }) => {
-      if (first) {
-        setIsAnimating(false);
-      }
-
       event.preventDefault();
-      const drawerIsOpen = y.value <= level[HALF_EXPANDED];
+      const drawerIsOpen = y.value <= level[FULL_EXPANDED];
       const isClick = last && Math.abs(mx) + Math.abs(my) <= 3 && !drawerIsOpen;
       if (isClick) {
         return setDrawerOpen();
@@ -84,8 +79,6 @@ export default function DraggableDrawer({ children, data }) {
 
         if (point === level[COLLAPSED]) {
           setCurrent(COLLAPSED);
-        } else if (point === level[HALF_EXPANDED]) {
-          setCurrent(HALF_EXPANDED);
         } else {
           setCurrent(FULL_EXPANDED);
         }
@@ -124,20 +117,15 @@ export default function DraggableDrawer({ children, data }) {
       >
         <Header {...bind()}>
           <IconButton
-            icon={
-              current === COLLAPSED || current === HALF_EXPANDED ? (
-                <IoIosArrowUp size={40} />
-              ) : current === FULL_EXPANDED ? (
-                <IoIosArrowDown size={40} />
-              ) : null
-            }
+            display={current === FULL_EXPANDED ? "none" : "flex"}
+            icon={current === COLLAPSED && <IoIosArrowUp size={40} />}
             color={"white"}
             borderRadius={50}
             top={-45}
             bg={"transparent"}
             _focus={{ bg: "transparent" }}
             sx={{
-              animation: isAnimating ? `${pulse} 2s infinite` : "none",
+              animation: `${pulse} 2s infinite`,
             }}
           />
           <Handle />
@@ -155,7 +143,7 @@ const BottomSheet = styled.div`
   touch-action: none;
   will-change: transform;
   position: fixed;
-  top: calc(100vh - 40px);
+  top: calc(100vh - 60px);
   left: 0;
   width: 100%;
   min-height: 100vh;
@@ -165,7 +153,7 @@ const BottomSheet = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
   color: #000;
-  z-index: 1000000000;
+  z-index: 100000000;
 
   display: flex;
   flex-direction: column;
