@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Icon, IconButton, Text, VStack } from "@chakra-ui/react";
+import { Icon, IconButton, VStack } from "@chakra-ui/react";
 import { DrawerInfo } from "./DrawerInfo";
 import { FiExternalLink } from "react-icons/fi";
 import DraggableDrawer from "./generic/DraggableDrawer";
@@ -8,8 +8,7 @@ import { Tb360View } from "react-icons/tb";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import AgSpeakLogo from "../../public/agspeak_logo.png";
+import { SplashScreen } from "./generic/SplashScreen";
 
 const blink = keyframes`
   0% { opacity: 1; }
@@ -22,8 +21,7 @@ const IconWithAnimation = styled(Icon)`
   animation-delay: 2s;
 `;
 
-export const HeroSection = ({ data }) => {
-  const [display, setDisplay] = useState("flex");
+export const HeroSection = ({ data, isLoading }) => {
   const [showIcon, setShowIcon] = useState(true);
 
   useEffect(() => {
@@ -31,17 +29,11 @@ export const HeroSection = ({ data }) => {
       setShowIcon(false);
     }, 8000);
 
-    const splashScreenTimer = setTimeout(() => {
-      setDisplay("none");
-    }, 1500);
-
     return () => {
       clearTimeout(iconTimer);
-      clearTimeout(splashScreenTimer);
     };
   }, []);
 
-  useEffect(() => {}, []);
   return (
     <>
       <VStack position={"absolute"} top={10} right={5} spacing={3}>
@@ -71,25 +63,7 @@ export const HeroSection = ({ data }) => {
       )}
 
       {/* Splash screen */}
-      <Flex
-        backgroundColor={"#00B894"}
-        h={"100vh"}
-        w={"100vw"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        flexDirection={"column"}
-        position={"absolute"}
-        top={0}
-        left={0}
-        display={display}
-        zIndex={"1000000000"}
-      >
-        <Image src={AgSpeakLogo} alt="logo" width={250} />
-
-        <Text position={"absolute"} bottom={65} color={"white"} fontSize={15}>
-          © AgSpert Technologies Pvt. Ltd.
-        </Text>
-      </Flex>
+      <SplashScreen isLoading={isLoading} />
 
       <DraggableDrawer data={data}>
         <DrawerInfo data={data} />

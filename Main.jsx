@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import { Scene } from "./Scene";
 import { useSearchParams } from "next/navigation";
@@ -17,7 +17,11 @@ export const Main = () => {
   const productId = 200;
   const enterpriseName = "kvkdt";
 
-  const { data: ProductData } = useGetProduct({
+  const {
+    data: ProductData,
+    isLoading,
+    isError,
+  } = useGetProduct({
     productId: productId,
     enterpriseName: enterpriseName,
   });
@@ -26,9 +30,11 @@ export const Main = () => {
 
   return (
     <Flex minW={"375px"} maxW={"100%"}>
-      <Scene data={ProductData} />
+      {isError ? (
+        <Text>Something went wrong!</Text>
+      ) : (
+        <Scene data={ProductData} isLoading={isLoading} />
+      )}
     </Flex>
   );
 };
-
-
