@@ -8,7 +8,7 @@ export const SocialLinks = ({ socialLinks }) => {
         <Link
           href={link?.url}
           isExternal
-          key={link?.id}
+          key={link?.url}
           w={"1.5rem"}
           h={"1.5rem"}
         >
@@ -17,6 +17,7 @@ export const SocialLinks = ({ socialLinks }) => {
             w={"100%"}
             h={"100%"}
             src={link?.thumbnail}
+            alt="thumbnail"
           />
         </Link>
       ))}

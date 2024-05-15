@@ -2,13 +2,14 @@ import { Image } from "@chakra-ui/react";
 import React from "react";
 
 export const BrandBanner = ({ data }) => {
-  const brandBanner = data[0].sphereInfo.find(
+  const brandBanner = data?.find(
     (info) => info.type === "brand_banner"
   );
 
   return (
     <Image
       src={brandBanner?.brand_banner}
+      alt="banner"
       position={"absolute"}
       top={0}
       left={0}

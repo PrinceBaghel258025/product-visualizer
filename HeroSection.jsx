@@ -84,7 +84,7 @@ export const HeroSection = ({ data }) => {
         display={display}
         zIndex={"1000000000"}
       >
-        <Image src={AgSpeakLogo} width={250} />
+        <Image src={AgSpeakLogo} alt="logo" width={250} />
 
         <Text position={"absolute"} bottom={65} color={"white"} fontSize={15}>
           © AgSpert Technologies Pvt. Ltd.

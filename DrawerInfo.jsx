@@ -25,28 +25,30 @@ export const DrawerInfo = ({ data }) => {
       mt={"6.5rem"}
       spacing={5}
     >
-      {data.map((item) =>
-        item?.sphereInfo?.map((info) => {
-          switch (info.type) {
-            case "header":
-              return <Header headerTitle={info.header_text} />;
-            case "text_content":
-              return <TextContent textContent={info.text_content} />;
-            case "image_content":
-              return <ImageContent media={info.image_urls} />;
-            case "partners":
-              return <BusinessPartner partner={info.partners} />;
-            case "video_content":
-              return <VideoContent media={info.video_urls} />;
-            case "redirect_url":
-              return <RedirectButton link={info.link} />;
-            case "social_links":
-              return <SocialLinks socialLinks={info.social_links} />;
-            default:
-              return null;
-          }
-        })
-      )}
+      {data?.map((info) => {
+        switch (info?.type) {
+          case "header":
+            return <Header key={info?.id} headerTitle={info?.header_text} />;
+          case "text_content":
+            return (
+              <TextContent key={info?.id} textContent={info?.text_content} />
+            );
+          case "image_content":
+            return <ImageContent key={info?.id} media={info?.image_urls} />;
+          case "partners":
+            return <BusinessPartner key={info?.id} partner={info?.partners} />;
+          case "video_content":
+            return <VideoContent key={info?.id} media={info?.video_urls} />;
+          case "redirect_url":
+            return <RedirectButton key={info?.id} link={info?.link} />;
+          case "social_links":
+            return (
+              <SocialLinks key={info?.id} socialLinks={info?.social_links} />
+            );
+          default:
+            return null;
+        }
+      })}
 
       <Text
         display={"inline-flex"}
@@ -61,7 +63,7 @@ export const DrawerInfo = ({ data }) => {
           <Image
             h={"1rem"}
             src="https://360-images-v1.s3.ap-south-1.amazonaws.com/Logo_agspeak.png"
-            alt=""
+            alt="logo"
           />
         </a>
       </Text>

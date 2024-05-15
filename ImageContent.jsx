@@ -30,11 +30,11 @@ export const ImageContent = ({ media }) => {
   return (
     <>
       {images?.length === 1 ? (
-        <Image w={"100%"} borderRadius={8} src={images[0]} />
+        <Image w={"100%"} borderRadius={8} src={images[0]} alt="image" />
       ) : (
         <HStack as={Slider} {...settings} width={"100%"} my={3}>
           {images?.map((img) => (
-            <Image key={img} borderRadius={8} src={img} />
+            <Image key={img} borderRadius={8} src={img} alt="image" />
           ))}
         </HStack>
       )}
