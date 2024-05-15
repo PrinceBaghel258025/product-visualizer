@@ -1,6 +1,6 @@
 "use client";
 
-import { HStack, Image } from "@chakra-ui/react";
+import { Image, Stack } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -32,11 +32,18 @@ export const ImageContent = ({ media }) => {
       {images?.length === 1 ? (
         <Image w={"100%"} borderRadius={8} src={images[0]} alt="image" />
       ) : (
-        <HStack as={Slider} {...settings} width={"100%"} my={3}>
+        <Stack as={Slider} {...settings} my={3}>
           {images?.map((img) => (
-            <Image key={img} borderRadius={8} src={img} alt="image" />
+            <Image
+              key={img}
+              src={img}
+              alt="image"
+              w={"100%"}
+              h={"100%"}
+              borderRadius={8}
+            />
           ))}
-        </HStack>
+        </Stack>
       )}
     </>
   );
