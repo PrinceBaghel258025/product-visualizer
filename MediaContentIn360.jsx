@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { Html } from "@react-three/drei";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const MediaContentIn360 = ({ data }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
@@ -10,7 +9,7 @@ const MediaContentIn360 = ({ data }) => {
   return (
     <Html position={[-50, -5, 50]}>
       <Box position={"relative"}>
-        {data?.farmer_info?.image ? (
+        {data?.image ? (
           <Box
             as={motion.div}
             position={"absolute"}
@@ -34,12 +33,10 @@ const MediaContentIn360 = ({ data }) => {
             }}
           >
             <Image
-              src={data?.farmer_info?.image}
-              style={{
-                height: "2rem",
-                width: "2rem",
-                borderRadius: "25rem",
-              }}
+              src={data?.image}
+              width={32}
+              height={32}
+              borderRadius={"25rem"}
               onClick={() => {
                 setShowUserInfo((prev) => !prev);
               }}
@@ -80,14 +77,12 @@ const MediaContentIn360 = ({ data }) => {
               setShowUserInfo((prev) => !prev);
             }}
           >
-            {data?.farmer_info?.image ? (
+            {data?.image ? (
               <Image
-                src={data?.farmer_info?.image}
-                style={{
-                  height: "5rem",
-                  width: "5rem",
-                  borderRadius: "25rem",
-                }}
+                src={data?.image}
+                width={80}
+                height={80}
+                borderRadius={"25rem"}
                 alt="person image"
               />
             ) : null}
@@ -100,17 +95,11 @@ const MediaContentIn360 = ({ data }) => {
               fontWeight={500}
               fontSize={"small"}
             >
-              {data?.farmer_info?.name ? (
-                <Text>Name: {data?.farmer_info?.name} </Text>
-              ) : null}
+              {data?.name ? <Text>Name: {data?.name} </Text> : null}
 
-              {data?.farmer_info?.age ? (
-                <Text>Age: {data?.farmer_info?.age} Years </Text>
-              ) : null}
+              {data?.age ? <Text>Age: {data?.age} Years </Text> : null}
 
-              {data?.farmer_info?.location ? (
-                <Text>Location: {data?.farmer_info?.location}</Text>
-              ) : null}
+              {data?.location ? <Text>Location: {data?.location}</Text> : null}
             </Box>
           </Flex>
         )}

@@ -21,7 +21,7 @@ const Sphere = ({ data }) => {
         <sphereGeometry args={[1, 100, 100]} />
         <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
-      <MediaContentIn360 data={image_360} />
+      <MediaContentIn360 data={image_360?.farmer_info} />
     </>
   );
 };

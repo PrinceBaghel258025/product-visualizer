@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, Stack } from "@chakra-ui/react";
+import { Flex, Stack, Text } from "@chakra-ui/react";
 import { Scene } from "./Scene";
 import { useSearchParams } from "next/navigation";
 import { useGetProduct } from "../apiHooks/useGetProduct";
@@ -58,6 +58,17 @@ const Error404 = () => {
       justifyContent={"center"}
     >
       <Image src={ErrorImage} alt="logo" width={250} />
+      <Text textAlign={"center"} fontSize={14} marginX={50}>
+        Something went wrong. If this issue persists, please contact us through
+        our help center at{" "}
+        <a
+          href="https://agspert.com/"
+          target="_blank"
+          style={{ color: "#00B894" }}
+        >
+          help.agspeak.com
+        </a>
+      </Text>
     </Stack>
   );
 };
