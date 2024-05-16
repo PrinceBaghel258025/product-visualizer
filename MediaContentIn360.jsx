@@ -10,43 +10,45 @@ const MediaContentIn360 = ({ data }) => {
   return (
     <Html position={[-50, -5, 50]}>
       <Box position={"relative"}>
-        <Box
-          as={motion.div}
-          position={"absolute"}
-          top={0}
-          border={"1px solid white"}
-          boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
-          borderRadius={50}
-          display={showUserInfo ? "flex" : "none"}
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.5,
-            type: "spring",
-            stiffness: 100,
-          }}
-        >
-          <Image
-            src={data?.farmer_info?.image}
-            style={{
-              height: "2rem",
-              width: "2rem",
-              borderRadius: "25rem",
+        {data?.farmer_info?.image ? (
+          <Box
+            as={motion.div}
+            position={"absolute"}
+            top={0}
+            border={"1px solid white"}
+            boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
+            borderRadius={50}
+            display={showUserInfo ? "flex" : "none"}
+            initial={{
+              opacity: 0,
+              y: 50,
             }}
-            onClick={() => {
-              setShowUserInfo((prev) => !prev);
+            whileInView={{
+              opacity: 1,
+              y: 0,
             }}
-            alt="person image"
-          />
+            transition={{
+              duration: 0.5,
+              type: "spring",
+              stiffness: 100,
+            }}
+          >
+            <Image
+              src={data?.farmer_info?.image}
+              style={{
+                height: "2rem",
+                width: "2rem",
+                borderRadius: "25rem",
+              }}
+              onClick={() => {
+                setShowUserInfo((prev) => !prev);
+              }}
+              alt="person image"
+            />
 
-          <Text w={"2rem"} />
-        </Box>
+            <Text w={"2rem"} />
+          </Box>
+        ) : null}
 
         {!showUserInfo && (
           <Flex
@@ -78,15 +80,17 @@ const MediaContentIn360 = ({ data }) => {
               setShowUserInfo((prev) => !prev);
             }}
           >
-            <Image
-              src={data?.farmer_info?.image}
-              style={{
-                height: "5rem",
-                width: "5rem",
-                borderRadius: "25rem",
-              }}
-              alt="person image"
-            />
+            {data?.farmer_info?.image ? (
+              <Image
+                src={data?.farmer_info?.image}
+                style={{
+                  height: "5rem",
+                  width: "5rem",
+                  borderRadius: "25rem",
+                }}
+                alt="person image"
+              />
+            ) : null}
 
             <Box
               w={"fit-content"}
@@ -96,9 +100,17 @@ const MediaContentIn360 = ({ data }) => {
               fontWeight={500}
               fontSize={"small"}
             >
-              <Text>Name: {data?.farmer_info?.name} </Text>
-              <Text>Age: {data?.farmer_info?.age} Years </Text>
-              <Text>Location: {data?.farmer_info?.location}</Text>
+              {data?.farmer_info?.name ? (
+                <Text>Name: {data?.farmer_info?.name} </Text>
+              ) : null}
+
+              {data?.farmer_info?.age ? (
+                <Text>Age: {data?.farmer_info?.age} Years </Text>
+              ) : null}
+
+              {data?.farmer_info?.location ? (
+                <Text>Location: {data?.farmer_info?.location}</Text>
+              ) : null}
             </Box>
           </Flex>
         )}
