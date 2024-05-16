@@ -4,11 +4,10 @@ import { Icon, IconButton, VStack } from "@chakra-ui/react";
 import { DrawerInfo } from "./DrawerInfo";
 import { FiExternalLink } from "react-icons/fi";
 import DraggableDrawer from "./generic/DraggableDrawer";
-import { Tb360View } from "react-icons/tb";
+import { TbView360Number } from "react-icons/tb";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { SplashScreen } from "./generic/SplashScreen";
 
 const blink = keyframes`
   0% { opacity: 1; }
@@ -21,7 +20,7 @@ const IconWithAnimation = styled(Icon)`
   animation-delay: 2s;
 `;
 
-export const HeroSection = ({ data, isLoading }) => {
+export const HeroSection = ({ data }) => {
   const [showIcon, setShowIcon] = useState(true);
 
   useEffect(() => {
@@ -52,7 +51,7 @@ export const HeroSection = ({ data, isLoading }) => {
 
       {showIcon && (
         <IconWithAnimation
-          as={Tb360View}
+          as={TbView360Number}
           color={"#ffffff"}
           position={"absolute"}
           top={"20%"}
@@ -61,9 +60,6 @@ export const HeroSection = ({ data, isLoading }) => {
           zIndex={"100000000"}
         />
       )}
-
-      {/* Splash screen */}
-      <SplashScreen isLoading={isLoading} />
 
       <DraggableDrawer data={data}>
         <DrawerInfo data={data} />

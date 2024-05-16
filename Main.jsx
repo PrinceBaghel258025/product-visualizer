@@ -1,40 +1,63 @@
-import { Flex, Text } from "@chakra-ui/react";
-import React from "react";
+"use client";
+
+import { Flex, Stack } from "@chakra-ui/react";
 import { Scene } from "./Scene";
 import { useSearchParams } from "next/navigation";
 import { useGetProduct } from "../apiHooks/useGetProduct";
+import { SplashScreen } from "./generic/SplashScreen";
+import ErrorImage from "../../public/404_error.jpg";
+import Image from "next/image";
 
 export const Main = () => {
   const searchParams = useSearchParams();
-  const urlProductId = searchParams?.get("id");
 
-  // Enterprise name
-  const urlEnterpriseName = window?.location?.hostname?.split(".")[0];
+  let urlProductId;
+  let urlEnterpriseName;
+
+  if (typeof window !== "undefined") {
+    // Product Id
+    urlProductId = searchParams.get("id");
+    // Enterprise name
+    urlEnterpriseName = window.location.hostname.split(".")[0];
+  }
 
   console.log("SEARCH: ", urlEnterpriseName, "Product: ", urlProductId);
 
   // Fake Data
-  const productId = 200;
+  const productId = 203;
   const enterpriseName = "kvkdt";
 
   const {
     data: ProductData,
-    isLoading,
-    isError,
+    isPending,
+    isSuccess,
   } = useGetProduct({
-    productId: productId,
-    enterpriseName: enterpriseName,
+    productId: urlProductId,
+    enterpriseName: urlEnterpriseName,
   });
-
-  console.log("ProductData", ProductData);
 
   return (
     <Flex minW={"375px"} maxW={"100%"}>
-      {isError ? (
-        <Text>Something went wrong!</Text>
+      {isPending ? (
+        <SplashScreen />
+      ) : isSuccess ? (
+        <Scene data={ProductData} />
       ) : (
-        <Scene data={ProductData} isLoading={isLoading} />
+        <Error404 />
       )}
     </Flex>
+  );
+};
+
+const Error404 = () => {
+  return (
+    <Stack
+      h={"100vh"}
+      w={"100vw"}
+      alignItems={"center"}
+      justifyContent={"center"}
+    >
+      <Image src={ErrorImage} alt="logo" width={250} />
+    </Stack>
   );
 };

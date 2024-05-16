@@ -3,10 +3,10 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { Html } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import UserProfile from "../../public/farmer.jpg";
 
-const MediaContentIn360 = () => {
+const MediaContentIn360 = ({ data }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
+
   return (
     <Html position={[-50, -5, 50]}>
       <Box position={"relative"}>
@@ -33,7 +33,7 @@ const MediaContentIn360 = () => {
           }}
         >
           <Image
-            src={UserProfile}
+            src={data?.farmer_info?.image}
             style={{
               height: "2rem",
               width: "2rem",
@@ -79,7 +79,7 @@ const MediaContentIn360 = () => {
             }}
           >
             <Image
-              src={UserProfile}
+              src={data?.farmer_info?.image}
               style={{
                 height: "5rem",
                 width: "5rem",
@@ -96,9 +96,9 @@ const MediaContentIn360 = () => {
               fontWeight={500}
               fontSize={"small"}
             >
-              <Text>Name: Sailen Phukan </Text>
-              <Text>Age: 45 Years </Text>
-              <Text>Location: GP Tea Farm</Text>
+              <Text>Name: {data?.farmer_info?.name} </Text>
+              <Text>Age: {data?.farmer_info?.age} Years </Text>
+              <Text>Location: {data?.farmer_info?.location}</Text>
             </Box>
           </Flex>
         )}

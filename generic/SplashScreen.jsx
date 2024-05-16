@@ -3,19 +3,17 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import AgSpeakLogo from "../../../public/agspeak_logo.png";
 
-export const SplashScreen = ({ isLoading }) => {
+export const SplashScreen = ({ inScene = false }) => {
   const [display, setDisplay] = useState("flex");
 
   useEffect(() => {
-    if (!isLoading) {
-      const splashScreenTimer = setTimeout(() => {
-        setDisplay("none");
-      }, 1500);
+    const splashScreenTimer = setTimeout(() => {
+      setDisplay("none");
+    }, 1500);
 
-      return () => {
-        clearTimeout(splashScreenTimer);
-      };
-    }
+    return () => {
+      clearTimeout(splashScreenTimer);
+    };
   }, []);
 
   return (
@@ -26,11 +24,11 @@ export const SplashScreen = ({ isLoading }) => {
       alignItems={"center"}
       justifyContent={"center"}
       flexDirection={"column"}
-      position={"absolute"}
+      position={inScene ? "absolute" : "relative"}
       top={0}
       left={0}
-      display={display}
-      zIndex={"1000000000"}
+      zIndex={inScene && "100000000"}
+      display={inScene ? display : "flex"}
     >
       <Image src={AgSpeakLogo} alt="logo" width={250} />
 

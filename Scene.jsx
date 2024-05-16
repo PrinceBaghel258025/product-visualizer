@@ -7,11 +7,13 @@ import React, { Suspense, useState } from "react";
 import * as THREE from "three";
 import { HeroSection } from "./HeroSection";
 import MediaContentIn360 from "./MediaContentIn360";
+import { SplashScreen } from "./generic/SplashScreen";
 
 const Sphere = ({ data }) => {
-  const texture = useTexture(
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/1.jpg"
-  );
+  const image_360 = data?.find((info) => info?.type === "360_image");
+
+  const texture = useTexture(image_360?.image_url);
+
   return (
     <>
       <ambientLight intensity={2} />
@@ -19,7 +21,7 @@ const Sphere = ({ data }) => {
         <sphereGeometry args={[1, 100, 100]} />
         <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
       </mesh>
-      <MediaContentIn360 />
+      <MediaContentIn360 data={image_360} />
     </>
   );
 };
@@ -38,13 +40,16 @@ export const Scene = ({ data }) => {
     <Box w={"100vw"} h={"100vh"}>
       <Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
         <ambientLight intensity={0.1} />
-        <Suspense fallback={null}>
-          <Sphere data={data} />
-        </Suspense>
+        <Suspense fallback={null}>{data && <Sphere data={data} />}</Suspense>
         <OrbitControls enableRotate={true} enableZoom={false} />
         <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
       </Canvas>
-      {isInsideSphere && <HeroSection data={data} />}
+      {isInsideSphere && (
+        <>
+          <HeroSection data={data} />
+          <SplashScreen inScene />
+        </>
+      )}
     </Box>
   );
 };
