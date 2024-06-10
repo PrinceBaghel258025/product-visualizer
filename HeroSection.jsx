@@ -23,6 +23,8 @@ const IconWithAnimation = styled(Icon)`
 export const HeroSection = ({ data }) => {
   const [showIcon, setShowIcon] = useState(true);
 
+  const redirect_url = data?.find((info) => info?.type === "redirect_url");
+
   useEffect(() => {
     const iconTimer = setTimeout(() => {
       setShowIcon(false);
@@ -37,7 +39,7 @@ export const HeroSection = ({ data }) => {
     <>
       <VStack position={"absolute"} top={10} right={5} spacing={3}>
         <a
-          href="https://woolahtea.com/products/rare-assam-green-tea"
+          href={redirect_url ? redirect_url?.link?.url : "https://agspert.com/"}
           target="_blank"
         >
           <IconButton

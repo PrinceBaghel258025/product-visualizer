@@ -24,7 +24,7 @@ export const Main = () => {
   console.log("SEARCH: ", urlEnterpriseName, "Product: ", urlProductId);
 
   // Fake Data
-  const productId = 203;
+  const productId = 32;
   const enterpriseName = "kvkdt";
 
   const {
