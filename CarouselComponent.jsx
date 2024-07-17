@@ -1,14 +1,11 @@
-"use client";
-
-import { Flex, Stack, Text } from "@chakra-ui/react";
+// CarouselComponent.jsx
+import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
 import { Scene } from "./Scene";
-import { useSearchParams } from "next/navigation";
-import { useGetProduct } from "../apiHooks/useGetProduct";
-import { SplashScreen } from "./generic/SplashScreen";
-import ErrorImage from "../../public/404_error.jpg";
-import Image from "next/image";
-import CarouselComponent from "./CarouselComponent";
-const dummyData = [
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { CustomNextArrow, CustomPrevArrow } from "./CustomArrow";
+const datasets = [
   [
     {
       id: 1,
@@ -132,68 +129,68 @@ const dummyData = [
   ],
 ];
 
-export const Main = () => {
-  const searchParams = useSearchParams();
+const CarouselComponent = () => {
+  const [isInteracting, setIsInteracting] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  let urlProductId;
-  let urlEnterpriseName;
+  useEffect(() => {
+    if (isInteracting) {
+      setIsVisible(false);
+    } else {
+      const timer = setTimeout(() => setIsVisible(true), 200);
+      return () => clearTimeout(timer);
+    }
+  }, [isInteracting]);
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    swipe: false,
+    draggable: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+    afterChange: (newIndex) => setCurrentSlide(newIndex),
+    // prevArrow: currentSlide > 0 && <CustomPrevArrow isVisible={isVisible} />,
+    // nextArrow: currentSlide < datasets.length - 1 && <CustomNextArrow isVisible={isVisible} />,
+  };
+  const sliderRef = useRef();
 
-  if (typeof window !== "undefined") {
-    // Product Id
-    urlProductId = searchParams.get("id");
-    // Enterprise name
-    urlEnterpriseName = window.location.hostname.split(".")[0];
-  }
+  const nextSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
 
-  console.log("SEARCH: ", urlEnterpriseName, "Product: ", urlProductId);
-
-  // Fake Data
-  const productId = 32;
-  const enterpriseName = "kvkdt";
-
-  const {
-    data: ProductData,
-    isPending,
-    isSuccess,
-  } = useGetProduct({
-    productId: 32,
-    enterpriseName: "kvkdt",
-  });
+  const prevSlide = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
 
   return (
-    // <Flex minW={"375px"} maxW={"100%"}>
-    isPending ? (
-      <SplashScreen />
-    ) : isSuccess ? (
-      // <Scene data={ProductData} />
-      <CarouselComponent />
-    ) : (
-      <Error404 />
-    )
-    // </Flex>
+    <div style={{ position: "relative" }}>
+      <Slider ref={sliderRef} {...settings}>
+        {datasets.map((dataset) => (
+          // <div key={dataset.id}>
+          //   {/* <div style={{ height: "100vh", width: "100vw", borderWidth: "50px" }}></div> */}
+          <Scene
+            setIsInteracting={setIsInteracting}
+            key={dataset.id}
+            data={dataset}
+          />
+          // </div>
+        ))}
+      </Slider>
+      {currentSlide > 0 && (
+        <CustomPrevArrow isVisible={isVisible} onClick={prevSlide} />
+      )}
+      {currentSlide < datasets.length - 1 && (
+        <CustomNextArrow isVisible={isVisible} onClick={nextSlide} />
+      )}
+    </div>
   );
 };
 
-const Error404 = () => {
-  return (
-    <Stack
-      h={"100vh"}
-      w={"100vw"}
-      alignItems={"center"}
-      justifyContent={"center"}
-    >
-      <Image src={ErrorImage} alt="logo" width={250} />
-      <Text textAlign={"center"} fontSize={14} marginX={50}>
-        Something went wrong. If this issue persists, please contact us through
-        our help center at{" "}
-        <a
-          href="https://agspert.com/"
-          target="_blank"
-          style={{ color: "#00B894" }}
-        >
-          help.agspeak.com
-        </a>
-      </Text>
-    </Stack>
-  );
-};
+export default CarouselComponent;
