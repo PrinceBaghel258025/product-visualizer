@@ -142,10 +142,6 @@ export default function DraggableDrawer({ children, data }) {
 const BottomSheet = styled.div`
   touch-action: none;
   will-change: transform;
-  position: fixed;
-  top: calc(100vh - 60px);
-  left: 0;
-  width: 100%;
   min-height: 100vh;
   border-radius: 18px 18px 0 0;
 
