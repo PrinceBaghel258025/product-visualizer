@@ -32,7 +32,7 @@ export default function DraggableDrawer({ children, data }) {
 
   // Initial value settings
   const [{ y }, set] = useSpring(() => ({
-    y: 0,
+    y: -40,
     config: { tension: 250, friction: 30 },
   }));
 
@@ -42,7 +42,7 @@ export default function DraggableDrawer({ children, data }) {
   };
 
   const handleDrawerClose = () => {
-    set({ y: level[COLLAPSED], config: dampedSpring, immediate: false });
+    set({ y: -40, config: dampedSpring, immediate: false });
     setCurrent(COLLAPSED);
   };
 
@@ -72,7 +72,7 @@ export default function DraggableDrawer({ children, data }) {
         const projectedEndpoint = y.get() + projection(velocityY);
         const point = findNearestNumberInArray(projectedEndpoint, level);
         set({
-          y: point === level[COLLAPSED] ? 0 : point,
+          y: point === level[COLLAPSED] ? -40 : point,
           immediate: false,
           config: spring,
         });
@@ -144,7 +144,6 @@ const BottomSheet = styled.div`
   will-change: transform;
   min-height: 100vh;
   border-radius: 18px 18px 0 0;
-
   background-color: rgba(255, 255, 255);
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
