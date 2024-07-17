@@ -22,22 +22,22 @@ const IconWithAnimation = styled(Icon)`
 `;
 
 export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
-  const [showIcon, setShowIcon] = useState(true);
+  // const [showIcon, setShowIcon] = useState(true);
 
   const imageScreen = data?.find((info) => info?.type === "2d_image");
   const videoScreen = data?.find((info) => info?.type === "2d_video");
 
   const redirect_url = data?.find((info) => info?.type === "redirect_url");
 
-  useEffect(() => {
-    const iconTimer = setTimeout(() => {
-      setShowIcon(false);
-    }, 8000);
+  // useEffect(() => {
+  //   const iconTimer = setTimeout(() => {
+  //     setShowIcon(false);
+  //   }, 8000);
 
-    return () => {
-      clearTimeout(iconTimer);
-    };
-  }, []);
+  //   return () => {
+  //     clearTimeout(iconTimer);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -75,7 +75,7 @@ export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
         </Stack>
       )}
 
-      {showIcon && (
+      {/* {showIcon && (
         <IconWithAnimation
           as={TbView360Number}
           color={"#ffffff"}
@@ -85,7 +85,7 @@ export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
           fontSize={"12rem"}
           zIndex={"100000000"}
         />
-      )}
+      )} */}
 
       <DraggableDrawer data={data}>
         <DrawerInfo data={data} />
