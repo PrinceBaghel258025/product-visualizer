@@ -18,6 +18,11 @@ const datasets = [
         type: "2d_image",
         image_url:
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/FarmImage.png",
+        screen_info: {
+          x_axis: 50,
+          y_axis: 150,
+          info: "Farming image",
+        },
       },
       {
         id: 2,
@@ -38,6 +43,11 @@ const datasets = [
         type: "2d_video",
         image_url:
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/farmerVideo.mp4",
+        screen_info: {
+          x_axis: 85,
+          y_axis: 250,
+          info: "Farming video",
+        },
       },
       {
         id: 2,

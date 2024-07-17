@@ -13,7 +13,7 @@ const ImageScreen = ({ data }) => {
         height={"100%"}
         width={"100%"}
       ></Box>
-      <HeroSection data={data} />
+      <HeroSection data={data} isImage />
     </Box>
   );
 };

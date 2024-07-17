@@ -9,14 +9,14 @@ const VideoScreen = ({ data }) => {
       <Box>
         <video
           src={videoUrl?.image_url}
-          controls
+          // controls
           autoPlay
           loop
           muted
           playsInline
         />
       </Box>
-      <HeroSection data={data} />
+      <HeroSection data={data} isVideo />
     </Box>
   );
 };
