@@ -224,7 +224,7 @@ const CarouselComponent = () => {
       <Slider ref={sliderRef} {...settings}>
         {datasets.map((dataset) => {
           return (
-            <Stack>
+            <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
                 <Scene
                   setIsInteracting={setIsInteracting}
