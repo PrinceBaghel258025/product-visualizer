@@ -1,7 +1,7 @@
 "use client";
 
 import { Box } from "@chakra-ui/react";
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { OrbitControls, useTexture, useVideoTexture } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { Suspense, useState, useEffect } from "react";
 import * as THREE from "three";
@@ -11,9 +11,18 @@ import { SplashScreen } from "./generic/SplashScreen";
 
 const Sphere = ({ data, setIsInteracting }) => {
   const image_360 = data?.find((info) => info?.type === "360_image");
+  const video_360 = data?.find((info) => info?.type === "360_video");
 
   const { gl } = useThree();
-  const texture = useTexture(image_360?.image_url);
+
+  let texture;
+
+  if (image_360) {
+    texture = useTexture(image_360?.image_url);
+  } else if (video_360) {
+    texture = useVideoTexture(video_360?.image_url);
+  } else return;
+
   useEffect(() => {
     const handlePointerDown = () => setIsInteracting(true);
     const handlePointerUp = () => setIsInteracting(false);
@@ -52,7 +61,9 @@ export const Scene = ({ data, setIsInteracting }) => {
     <Box w={"100vw"} h={"100vh"}>
       <Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
         <ambientLight intensity={0.1} />
-        <Suspense fallback={null}>{data && <Sphere setIsInteracting={setIsInteracting} data={data} />}</Suspense>
+        <Suspense fallback={null}>
+          {data && <Sphere setIsInteracting={setIsInteracting} data={data} />}
+        </Suspense>
         <OrbitControls enableRotate={true} enableZoom={false} />
         <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
       </Canvas>

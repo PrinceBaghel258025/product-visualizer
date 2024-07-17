@@ -12,9 +12,9 @@ const dummyData = [
   [
     {
       id: 1,
-      type: "360_image",
+      type: "360_video",
       image_url:
-        "https://agspert-weatherstation1.s3.amazonaws.com/media/1079/Field_of_Rape_in_Full_Flower_%E2%80%93_360%C2%B0_Drone_Panorama.jpg",
+        "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
     },
     {
       id: 2,
@@ -156,8 +156,8 @@ export const Main = () => {
     isPending,
     isSuccess,
   } = useGetProduct({
-    productId: 32,
-    enterpriseName: "kvkdt",
+    productId: productId,
+    enterpriseName: enterpriseName,
   });
 
   return (
