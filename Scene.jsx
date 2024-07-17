@@ -13,6 +13,7 @@ import * as THREE from "three";
 import { HeroSection } from "./HeroSection";
 import MediaContentIn360 from "./MediaContentIn360";
 import { SplashScreen } from "./generic/SplashScreen";
+import ScreenInfoCard from "./generic/ScreenInfoCard";
 
 const Sphere = ({ data, setIsInteracting }) => {
   const image_360 = data?.find((info) => info?.type === "360_image");
@@ -41,6 +42,8 @@ const Sphere = ({ data, setIsInteracting }) => {
     };
   }, [gl, setIsInteracting]);
 
+  console.log("video_360: ", video_360);
+
   return (
     <>
       {texture ? (
@@ -51,6 +54,28 @@ const Sphere = ({ data, setIsInteracting }) => {
             <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
           </mesh>
           <MediaContentIn360 data={image_360?.farmer_info} />
+
+          {video_360?.screen_info?.map((info) => {
+            return (
+              <Html
+                key={info}
+                position={[info?.x_axis, info?.y_axis, info?.z_axis]}
+              >
+                <ScreenInfoCard data={info} />
+              </Html>
+            );
+          })}
+
+          {image_360?.screen_info?.map((info) => {
+            return (
+              <Html
+                key={info}
+                position={[info?.x_axis, info?.y_axis, info?.z_axis]}
+              >
+                <ScreenInfoCard data={info} />
+              </Html>
+            );
+          })}
         </>
       ) : (
         <Html>

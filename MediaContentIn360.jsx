@@ -7,7 +7,7 @@ const MediaContentIn360 = ({ data }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
 
   return (
-    <Html position={[-50, -5, 50]}>
+    <Html position={[data?.x_axis, data?.y_axis, data?.z_axis]}>
       <Box position={"relative"}>
         {data?.image ? (
           <Box

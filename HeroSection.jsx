@@ -39,9 +39,6 @@ export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
     };
   }, []);
 
-  const x_axis = 85;
-  const y_axis = 250;
-
   return (
     <>
       <VStack position={"absolute"} top={10} right={5} spacing={3}>

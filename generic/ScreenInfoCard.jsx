@@ -15,7 +15,7 @@ const ScreenInfoCard = ({ data }) => {
         border={"1px solid white"}
         boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
         borderRadius={50}
-        backgroundColor={"white"}
+        backgroundColor={"rgb(255,255,255,0.7)"}
         display={showUserInfo ? "flex" : "none"}
         initial={{
           opacity: 0,
@@ -70,12 +70,14 @@ const ScreenInfoCard = ({ data }) => {
           <Box
             w={"fit-content"}
             bg={"rgb(255, 255, 255, 0.8)"}
-            p={2}
+            p={4}
             borderRadius={10}
             fontWeight={500}
             fontSize={"small"}
           >
-            <Text mb={0}>{data?.info}</Text>
+            <Text mb={0} fontSize={12}>
+              {data?.info}
+            </Text>
           </Box>
         </Flex>
       )}

@@ -11,76 +11,6 @@ import VideoScreen from "./VideoScreen";
 const datasets = [
   {
     id: 1,
-    type: "2d_image",
-    data: [
-      {
-        id: 1,
-        type: "2d_image",
-        image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/FarmImage.png",
-        screen_info: {
-          x_axis: 50,
-          y_axis: 150,
-          info: "Farming image",
-        },
-      },
-      {
-        id: 2,
-        type: "text_content",
-        text_content: {
-          name: "Subscribe",
-          content: "You can subscribe to AgSpeak to display content!",
-        },
-      },
-    ],
-  },
-  {
-    id: 2,
-    type: "2d_video",
-    data: [
-      {
-        id: 1,
-        type: "2d_video",
-        image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/farmerVideo.mp4",
-        screen_info: {
-          x_axis: 85,
-          y_axis: 250,
-          info: "Farming video",
-        },
-      },
-      {
-        id: 2,
-        type: "text_content",
-        text_content: {
-          name: "Subscribe",
-          content: "You can subscribe to AgSpeak to display content!",
-        },
-      },
-    ],
-  },
-  {
-    id: 3,
-    type: "360_video",
-    data: [
-      {
-        id: 1,
-        type: "360_video",
-        image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
-      },
-      {
-        id: 2,
-        type: "text_content",
-        text_content: {
-          name: "Subscribe",
-          content: "You can subscribe to AgSpeak to display content!",
-        },
-      },
-    ],
-  },
-  {
-    id: 4,
     type: "360_image",
     data: [
       {
@@ -88,12 +18,30 @@ const datasets = [
         type: "360_image",
         image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/1.jpg",
         farmer_info: {
+          x_axis: -50,
+          y_axis: -5,
+          z_axis: 50,
           age: 45,
           name: "Sailen Phukan",
           image:
             "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/360_media/farmer.jpg",
           location: "GP Tea Farm",
         },
+        screen_info: [
+          {
+            x_axis: 50,
+            y_axis: -20,
+            z_axis: 50,
+            info: `Only the top tender two leaves and a bud are meticulously plucked by skilled workers perfected over years of working in the farm. Its is also known as the Gold Standard of Tea Plucking. `,
+          },
+          {
+            x_axis: 50,
+            y_axis: 20,
+            z_axis: -50,
+            info: `High Nutritive Value: The young leaves and buds contain a high concentration of polyphenols, especially catechins, which are powerful antioxidants. These compounds help protect the body against free radical damage. Theanine is an amino acid found in higher concentrations in young tea leaves. It has a calming effect on the brain and can enhance focus and concentration.
+            Regenerative Natural Farming: At Woolah Tea, we grow our teas organically without chemicals, using regenerative methods to enhance soil health and biodiversity. By adopting sustainable practices like natural pest control and renewable energy, we aim to cut down on our carbon footprint. Our commitment ensures that you enjoy pure, nutrient-rich teas while supporting a healthier planet and local communities.`,
+          },
+        ],
       },
       {
         id: 2,
@@ -185,6 +133,61 @@ const datasets = [
               "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/instagram.png",
           },
         ],
+      },
+    ],
+  },
+
+  {
+    id: 2,
+    type: "2d_video",
+    data: [
+      {
+        id: 1,
+        type: "2d_video",
+        image_url:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
+        screen_info: {
+          x_axis: 85,
+          y_axis: 250,
+          info: "Unlike mass-produced commodity teas, we follow traditional and natural withering processes in small batches. It helps in controlled dehydration or moisture reduction of the leaves and helps in flavour development. Fresh oxygen comes in contact with the leaves to do the magic.",
+        },
+      },
+      {
+        id: 2,
+        type: "text_content",
+        text_content: {
+          name: "Subscribe",
+          content: "You can subscribe to AgSpeak to display content!",
+        },
+      },
+    ],
+  },
+
+  {
+    id: 3,
+    type: "360_video",
+    data: [
+      {
+        id: 1,
+        type: "360_video",
+        image_url:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+        screen_info: [
+          {
+            x_axis: 50,
+            y_axis: -20,
+            z_axis: 50,
+            info: "Sorting & tying of the finest tea leaves Weighing of the leaves Compressing of the tea dips Sachet Packaging",
+          },
+        ],
+      },
+      {
+        id: 2,
+        type: "text_content",
+        text_content: {
+          name: "Subscribe",
+          content: "You can subscribe to AgSpeak to display content!",
+        },
       },
     ],
   },
