@@ -1,7 +1,12 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
-import { OrbitControls, useTexture, useVideoTexture } from "@react-three/drei";
+import { Box, Stack, Text } from "@chakra-ui/react";
+import {
+  Html,
+  OrbitControls,
+  useTexture,
+  useVideoTexture,
+} from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { Suspense, useState, useEffect } from "react";
 import * as THREE from "three";
@@ -38,12 +43,24 @@ const Sphere = ({ data, setIsInteracting }) => {
 
   return (
     <>
-      <ambientLight intensity={2} />
-      <mesh>
-        <sphereGeometry args={[1, 100, 100]} />
-        <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
-      </mesh>
-      <MediaContentIn360 data={image_360?.farmer_info} />
+      {texture ? (
+        <>
+          <ambientLight intensity={2} />
+          <mesh>
+            <sphereGeometry args={[1, 100, 100]} />
+            <meshStandardMaterial map={texture} side={THREE.DoubleSide} />
+          </mesh>
+          <MediaContentIn360 data={image_360?.farmer_info} />
+        </>
+      ) : (
+        <Html>
+          <Stack w={"50vw"} left={50} position={"relative"}>
+            <Text position={"absolute"} left={-120}>
+              Texture is Loading...
+            </Text>
+          </Stack>
+        </Html>
+      )}
     </>
   );
 };

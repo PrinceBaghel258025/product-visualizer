@@ -5,7 +5,42 @@ import { Scene } from "./Scene";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CustomNextArrow, CustomPrevArrow } from "./CustomArrow";
+import { Stack, Text } from "@chakra-ui/react";
+import ImageScreen from "./ImageScreen";
+import VideoScreen from "./VideoScreen";
 const datasets = [
+  [
+    {
+      id: 1,
+      type: "2d_image",
+      image_url:
+        "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+    },
+    {
+      id: 2,
+      type: "text_content",
+      text_content: {
+        name: "Subscribe",
+        content: "You can subscribe to AgSpeak to display content!",
+      },
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "2d_video",
+      image_url:
+        "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+    },
+    {
+      id: 2,
+      type: "text_content",
+      text_content: {
+        name: "Subscribe",
+        content: "You can subscribe to AgSpeak to display content!",
+      },
+    },
+  ],
   [
     {
       id: 1,
@@ -143,7 +178,6 @@ const CarouselComponent = () => {
     }
   }, [isInteracting]);
   const settings = {
-    dots: true,
     infinite: false,
     speed: 500,
     swipe: false,
@@ -173,16 +207,23 @@ const CarouselComponent = () => {
     <div style={{ position: "relative" }}>
       <Slider ref={sliderRef} {...settings}>
         {datasets.map((dataset) => (
-          // <div key={dataset.id}>
-          //   {/* <div style={{ height: "100vh", width: "100vw", borderWidth: "50px" }}></div> */}
-          <Scene
-            setIsInteracting={setIsInteracting}
-            key={dataset.id}
-            data={dataset}
-          />
-          // </div>
+          <>
+            {dataset?.type === "360_image" ||
+              ("360_video" && (
+                <Scene
+                  setIsInteracting={setIsInteracting}
+                  key={dataset.id}
+                  data={dataset}
+                />
+              ))}
+
+            {dataset?.type === "2d_image" && <ImageScreen data={dataset} />}
+
+            {dataset?.type === "2d_video" && <VideoScreen data={dataset} />}
+          </>
         ))}
       </Slider>
+
       {currentSlide > 0 && (
         <CustomPrevArrow isVisible={isVisible} onClick={prevSlide} />
       )}
