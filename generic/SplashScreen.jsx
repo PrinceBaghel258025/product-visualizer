@@ -19,8 +19,8 @@ export const SplashScreen = ({ inScene = false }) => {
   return (
     <Flex
       backgroundColor={"#00B894"}
-      h={"100vh"}
-      w={"100vw"}
+      h={"100dvh"}
+      w={"100dvw"}
       alignItems={"center"}
       justifyContent={"center"}
       flexDirection={"column"}

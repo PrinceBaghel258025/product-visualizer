@@ -6,7 +6,7 @@ const VideoScreen = ({ data }) => {
   const videoUrl = data?.find((info) => info?.type === "2d_video");
 
   return (
-    <Box position={"relative"} w={"100vw"} h={"100vh"}>
+    <Box position={"relative"} w={"100dvw"} h={"100dvh"}>
       <Box>
         <video
           src={videoUrl?.image_url}

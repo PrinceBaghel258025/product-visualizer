@@ -177,7 +177,7 @@ export const Scene = ({ data, setIsInteracting }) => {
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   return (
-    <Box w={"100vw"} h={"100vh"}>
+    <Box w={"100dvw"} h={"100dvh"}>
       <Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
         <ambientLight intensity={0.1} />
         <Suspense fallback={null}>

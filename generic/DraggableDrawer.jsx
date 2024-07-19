@@ -156,7 +156,7 @@ export default function DraggableDrawer({
 const BottomSheet = styled.div`
   touch-action: none;
   will-change: transform;
-  min-height: 100vh;
+  min-height: 100dvh;
   border-radius: 18px 18px 0 0;
   background-color: rgba(255, 255, 255);
   border-top: 1px solid rgba(0, 0, 0, 0.25);

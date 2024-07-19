@@ -177,8 +177,8 @@ export const Main = () => {
 const Error404 = () => {
   return (
     <Stack
-      h={"100vh"}
-      w={"100vw"}
+      h={"100dvh"}
+      w={"100dvw"}
       alignItems={"center"}
       justifyContent={"center"}
     >
