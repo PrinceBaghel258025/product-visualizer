@@ -196,7 +196,7 @@ export const Scene = ({ data, setIsInteracting }) => {
         <>
           <HeroSection
             data={data}
-            setIsBottomSheetOpen={setIsBottomSheetOpen}
+            setIsBottomSheetOpen={(val) => { setIsBottomSheetOpen(val); setIsInteracting(!val) }}
           />
           <SplashScreen inScene />
         </>

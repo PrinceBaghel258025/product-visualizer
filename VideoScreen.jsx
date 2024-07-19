@@ -2,13 +2,13 @@ import { Box, Stack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { HeroSection } from "./HeroSection";
 
-const VideoScreen = ({ data }) => {
+const VideoScreen = ({ data, setIsInteracting }) => {
   const videoUrl = data?.find((info) => info?.type === "2d_video");
 
   return (
     <Box position={"relative"} w={"100dvw"} h={"100dvh"}>
       <Box>
-        <video
+        <video style={{ minHeight: "100dvh", objectFit: 'fill' }}
           src={videoUrl?.image_url}
           // controls
           autoPlay
@@ -17,7 +17,7 @@ const VideoScreen = ({ data }) => {
           playsInline
         />
       </Box>
-      <HeroSection data={data} isVideo />
+      <HeroSection setIsBottomSheetOpen={(val) => setIsInteracting(!val)} data={data} isVideo />
     </Box>
   );
 };

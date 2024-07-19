@@ -275,11 +275,11 @@ const CarouselComponent = ({ productData }) => {
               )}
 
               {dataset?.type === "2d_image" && (
-                <ImageScreen data={dataset?.data} />
+                <ImageScreen setIsInteracting={setIsInteracting} data={dataset?.data} />
               )}
 
               {dataset?.type === "2d_video" && (
-                <VideoScreen data={dataset?.data} />
+                <VideoScreen setIsInteracting={setIsInteracting} data={dataset?.data} />
               )}
             </Stack>
           );
