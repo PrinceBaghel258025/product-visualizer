@@ -47,7 +47,7 @@ export const HeroSection = ({
 
   console.log("loggin from scene", header)
   return (
-    <VStack width={"100dvw"}>
+    <>
       <Box position={"absolute"} top={'6%'} minWidth={"100dvw"} >
         <Flex justifyContent={'center'}  >
           <Box paddingX={5}
@@ -109,6 +109,6 @@ export const HeroSection = ({
       <DraggableDrawer data={data} setIsBottomSheetOpen={setIsBottomSheetOpen}>
         <DrawerInfo data={data} />
       </DraggableDrawer>
-    </VStack>
+    </>
   );
 };
