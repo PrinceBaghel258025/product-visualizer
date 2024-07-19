@@ -11,12 +11,13 @@ import VideoScreen from "./VideoScreen";
 const datasets = [
   {
     id: 1,
-    type: "360_image",
+    type: "360_video",
     data: [
       {
         id: 1,
-        type: "360_image",
-        image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/1.jpg",
+        type: "360_video",
+        image_url:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: -50,
           y_axis: -5,
@@ -180,6 +181,27 @@ const datasets = [
             info: "Sorting & tying of the finest tea leaves Weighing of the leaves Compressing of the tea dips Sachet Packaging",
           },
         ],
+      },
+      {
+        id: 2,
+        type: "text_content",
+        text_content: {
+          name: "Subscribe",
+          content: "You can subscribe to AgSpeak to display content!",
+        },
+      },
+    ],
+  },
+
+  {
+    id: 4,
+    type: "360_video",
+    data: [
+      {
+        id: 1,
+        type: "360_video",
+        image_url:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
       {
         id: 2,
