@@ -233,11 +233,11 @@ const CarouselComponent = () => {
   };
 
   return (
-    <Stack position={"relative"}>
+    <Stack position={"relative"} maxH={"100mvh"}>
       <Slider ref={sliderRef} {...settings}>
         {datasets.map((dataset) => {
           return (
-            <Stack key={dataset.id}>
+            <Stack key={dataset.id} overflow={"hidden"}>
               {dataset?.type === "360_image" && (
                 <Scene
                   setIsInteracting={setIsInteracting}

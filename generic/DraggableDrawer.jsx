@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "@react-spring/web";
 import { useDrag } from "react-use-gesture/dist";
@@ -21,7 +21,11 @@ const dampedSpring = { tension: 247, friction: 33 };
 
 const [COLLAPSED, FULL_EXPANDED] = [0, 1];
 
-export default function DraggableDrawer({ children, data }) {
+export default function DraggableDrawer({
+  children,
+  data,
+  setIsBottomSheetOpen,
+}) {
   const { height } = useWindowSize();
   const level = React.useMemo(
     () => [0, -(height - 80), -(height - 80)],
@@ -103,6 +107,16 @@ export default function DraggableDrawer({ children, data }) {
   50% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 `;
+
+  useEffect(() => {
+    if (setIsBottomSheetOpen && typeof setIsBottomSheetOpen === "function") {
+      if (current === COLLAPSED) {
+        setIsBottomSheetOpen(true);
+      } else {
+        setIsBottomSheetOpen(false);
+      }
+    }
+  }, [current]);
 
   return (
     <>

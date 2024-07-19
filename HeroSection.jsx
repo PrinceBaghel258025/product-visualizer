@@ -21,7 +21,12 @@ const IconWithAnimation = styled(Icon)`
   animation-delay: 2s;
 `;
 
-export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
+export const HeroSection = ({
+  data,
+  isImage = false,
+  isVideo = false,
+  setIsBottomSheetOpen,
+}) => {
   // const [showIcon, setShowIcon] = useState(true);
 
   const imageScreen = data?.find((info) => info?.type === "2d_image");
@@ -87,7 +92,7 @@ export const HeroSection = ({ data, isImage = false, isVideo = false }) => {
         />
       )} */}
 
-      <DraggableDrawer data={data}>
+      <DraggableDrawer data={data} setIsBottomSheetOpen={setIsBottomSheetOpen}>
         <DrawerInfo data={data} />
       </DraggableDrawer>
     </>

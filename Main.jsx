@@ -1,7 +1,6 @@
 "use client";
 
-import { Flex, Stack, Text } from "@chakra-ui/react";
-import { Scene } from "./Scene";
+import { Stack, Text } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
 import { useGetProduct } from "../apiHooks/useGetProduct";
 import { SplashScreen } from "./generic/SplashScreen";
@@ -160,17 +159,18 @@ export const Main = () => {
     enterpriseName: enterpriseName,
   });
 
+  console.log("ProductData: ", ProductData);
+
   return (
-    // <Flex minW={"375px"} maxW={"100%"}>
-    isPending ? (
-      <SplashScreen />
-    ) : isSuccess ? (
-      // <Scene data={ProductData} />
-      <CarouselComponent />
-    ) : (
-      <Error404 />
-    )
-    // </Flex>
+    <>
+      {isPending ? (
+        <SplashScreen />
+      ) : isSuccess ? (
+        <CarouselComponent />
+      ) : (
+        <Error404 />
+      )}
+    </>
   );
 };
 
