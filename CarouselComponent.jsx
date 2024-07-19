@@ -193,7 +193,7 @@ const datasets = [
   },
 ];
 
-const CarouselComponent = () => {
+const CarouselComponent = ({ productData }) => {
   const [isInteracting, setIsInteracting] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -233,11 +233,11 @@ const CarouselComponent = () => {
   };
 
   return (
-    <Stack position={"relative"} maxH={"100mvh"}>
+    <Stack position={"relative"} overflow={"hidden"} maxH={"100dvh"}>
       <Slider ref={sliderRef} {...settings}>
         {datasets.map((dataset) => {
           return (
-            <Stack key={dataset.id} overflow={"hidden"}>
+            <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
                 <Scene
                   setIsInteracting={setIsInteracting}

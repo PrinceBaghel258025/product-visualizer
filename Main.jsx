@@ -151,7 +151,7 @@ export const Main = () => {
   const enterpriseName = "kvkdt";
 
   const {
-    data: ProductData,
+    data: productData,
     isPending,
     isSuccess,
   } = useGetProduct({
@@ -159,14 +159,14 @@ export const Main = () => {
     enterpriseName: enterpriseName,
   });
 
-  console.log("ProductData: ", ProductData);
+  console.log("productData: ", productData);
 
   return (
     <>
       {isPending ? (
         <SplashScreen />
       ) : isSuccess ? (
-        <CarouselComponent />
+        <CarouselComponent productData={productData} />
       ) : (
         <Error404 />
       )}
