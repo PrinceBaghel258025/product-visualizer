@@ -12,6 +12,7 @@ const datasets = [
   {
     id: 1,
     type: "360_video",
+    header: 'Plucking',
     data: [
       {
         id: 1,
@@ -141,6 +142,7 @@ const datasets = [
   {
     id: 2,
     type: "2d_video",
+    header: 'Withering',
     data: [
       {
         id: 1,
@@ -167,6 +169,7 @@ const datasets = [
   {
     id: 3,
     type: "360_video",
+    header: 'Tea Crafting',
     data: [
       {
         id: 1,
@@ -196,6 +199,7 @@ const datasets = [
   {
     id: 4,
     type: "360_video",
+    header: 'Sachet Making',
     data: [
       {
         id: 1,
@@ -262,6 +266,7 @@ const CarouselComponent = ({ productData }) => {
             <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
                 <Scene
+                  header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
                 />
@@ -269,17 +274,18 @@ const CarouselComponent = ({ productData }) => {
 
               {dataset?.type === "360_video" && (
                 <Scene
+                  header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
                 />
               )}
 
               {dataset?.type === "2d_image" && (
-                <ImageScreen setIsInteracting={setIsInteracting} data={dataset?.data} />
+                <ImageScreen header={dataset?.header} setIsInteracting={setIsInteracting} data={dataset?.data} />
               )}
 
               {dataset?.type === "2d_video" && (
-                <VideoScreen setIsInteracting={setIsInteracting} data={dataset?.data} />
+                <VideoScreen header={dataset?.header} setIsInteracting={setIsInteracting} data={dataset?.data} />
               )}
             </Stack>
           );

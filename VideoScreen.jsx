@@ -2,7 +2,7 @@ import { Box, Stack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { HeroSection } from "./HeroSection";
 
-const VideoScreen = ({ data, setIsInteracting }) => {
+const VideoScreen = ({header, data, setIsInteracting }) => {
   const videoUrl = data?.find((info) => info?.type === "2d_video");
 
   return (
@@ -17,7 +17,7 @@ const VideoScreen = ({ data, setIsInteracting }) => {
           playsInline
         />
       </Box>
-      <HeroSection setIsBottomSheetOpen={(val) => setIsInteracting(!val)} data={data} isVideo />
+      <HeroSection header={header} setIsBottomSheetOpen={(val) => setIsInteracting(!val)} data={data} isVideo />
     </Box>
   );
 };

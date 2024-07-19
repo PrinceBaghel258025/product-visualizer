@@ -171,10 +171,11 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
   return null;
 };
 
-export const Scene = ({ data, setIsInteracting }) => {
+export const Scene = ({ data, setIsInteracting, header }) => {
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
+
 
   return (
     <Box w={"100dvw"} h={"100dvh"}>
@@ -194,7 +195,7 @@ export const Scene = ({ data, setIsInteracting }) => {
       </Canvas>
       {isInsideSphere && (
         <>
-          <HeroSection
+          <HeroSection header={header}
             data={data}
             setIsBottomSheetOpen={(val) => { setIsBottomSheetOpen(val); setIsInteracting(!val) }}
           />
