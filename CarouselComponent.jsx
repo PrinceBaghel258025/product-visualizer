@@ -219,6 +219,7 @@ const CarouselComponent = ({ productData }) => {
     draggable: false,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: true,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     afterChange: (newIndex) => setCurrentSlide(newIndex),
     // prevArrow: currentSlide > 0 && <CustomPrevArrow isVisible={isVisible} />,
