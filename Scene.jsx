@@ -171,7 +171,7 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
   return null;
 };
 
-export const Scene = ({ data, setIsInteracting, header }) => {
+export const Scene = ({ data, setIsInteracting, header, fov }) => {
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);

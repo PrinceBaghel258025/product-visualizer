@@ -102,14 +102,14 @@ const defaultSheetData = [{
 const datasets = [
   {
     id: 1,
-    type: "360_video",
+    type: "360_image",
     header: 'Plucking',
     data: [
       {
         id: 1,
-        type: "360_video",
+        type: "360_image",
         image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
+          "./1.png",
         farmer_info: {
           x_axis: -50,
           y_axis: -5,
@@ -162,14 +162,16 @@ const datasets = [
 
   {
     id: 3,
-    type: "360_video",
+    type: "360_image",
     header: 'Tea Crafting',
+    fov: 90,
     data: [
       {
         id: 1,
-        type: "360_video",
+        type: "360_image",
         image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+          "Tea-Crafting.png",
         screen_info: [
           {
             x_axis: 50,
@@ -185,14 +187,15 @@ const datasets = [
 
   {
     id: 4,
-    type: "360_video",
+    type: "360_image",
     header: 'Sachet Making',
     data: [
       {
         id: 1,
-        type: "360_video",
+        type: "360_image",
         image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+          "./Sachet.png",
+          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
       ...defaultSheetData
     ],
@@ -219,7 +222,7 @@ const CarouselComponent = ({ productData }) => {
     draggable: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    lazyLoad: true,
+    // lazyLoad: true,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     afterChange: (newIndex) => setCurrentSlide(newIndex),
     // prevArrow: currentSlide > 0 && <CustomPrevArrow isVisible={isVisible} />,
@@ -246,7 +249,7 @@ const CarouselComponent = ({ productData }) => {
           return (
             <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
-                <Scene
+                <Scene fov={dataset?.fov}
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
