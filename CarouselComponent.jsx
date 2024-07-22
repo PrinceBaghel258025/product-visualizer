@@ -8,6 +8,8 @@ import { CustomNextArrow, CustomPrevArrow } from "./CustomArrow";
 import { Stack, Text } from "@chakra-ui/react";
 import ImageScreen from "./ImageScreen";
 import VideoScreen from "./VideoScreen";
+import DraggableDrawer from "./generic/DraggableDrawer";
+import { DrawerInfo } from "./DrawerInfo";
 const defaultSheetData = [
   {
     id: 2,
@@ -206,6 +208,7 @@ const CarouselComponent = ({ productData }) => {
   const [isInteracting, setIsInteracting] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   useEffect(() => {
     if (isInteracting) {
@@ -254,6 +257,8 @@ const CarouselComponent = ({ productData }) => {
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
+                  isBottomSheetOpen={isBottomSheetOpen}
+                  setIsBottomSheetOpen={setIsBottomSheetOpen}
                 />
               )}
 
@@ -262,6 +267,8 @@ const CarouselComponent = ({ productData }) => {
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
+                  isBottomSheetOpen={isBottomSheetOpen}
+                  setIsBottomSheetOpen={setIsBottomSheetOpen}
                 />
               )}
 
@@ -284,6 +291,13 @@ const CarouselComponent = ({ productData }) => {
           );
         })}
       </Slider>
+
+      <DraggableDrawer
+        data={defaultSheetData}
+        setIsBottomSheetOpen={setIsBottomSheetOpen}
+      >
+        <DrawerInfo data={defaultSheetData} />
+      </DraggableDrawer>
 
       {currentSlide > 0 && (
         <CustomPrevArrow isVisible={isVisible} onClick={prevSlide} />

@@ -1,6 +1,14 @@
 "use client";
 
-import { Box, Flex, Icon, IconButton, Stack, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Icon,
+  IconButton,
+  Stack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { DrawerInfo } from "./DrawerInfo";
 import { FiExternalLink } from "react-icons/fi";
 import DraggableDrawer from "./generic/DraggableDrawer";
@@ -26,7 +34,7 @@ export const HeroSection = ({
   isImage = false,
   isVideo = false,
   setIsBottomSheetOpen,
-  header
+  header,
 }) => {
   // const [showIcon, setShowIcon] = useState(true);
 
@@ -45,17 +53,17 @@ export const HeroSection = ({
   //   };
   // }, []);
 
-  console.log("loggin from scene", header)
+  console.log("loggin from scene", header);
   return (
     <>
-      <Box position={"absolute"} top={'6%'} minWidth={"100dvw"} >
-        <Flex justifyContent={'center'}  >
-          <Box paddingX={5}
+      <Box position={"absolute"} top={"6%"} minWidth={"100dvw"}>
+        <Flex justifyContent={"center"}>
+          <Box
+            paddingX={5}
             borderRadius={10}
             fontWeight={500}
             bg={"rgb(255, 255, 255, 0.8)"}
           >
-
             {header ? <Text>{header}</Text> : null}
           </Box>
         </Flex>
@@ -106,9 +114,9 @@ export const HeroSection = ({
         />
       )} */}
 
-      <DraggableDrawer data={data} setIsBottomSheetOpen={setIsBottomSheetOpen}>
+      {/* <DraggableDrawer data={data} setIsBottomSheetOpen={setIsBottomSheetOpen}>
         <DrawerInfo data={data} />
-      </DraggableDrawer>
+      </DraggableDrawer> */}
     </>
   );
 };
