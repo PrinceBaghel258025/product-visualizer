@@ -106,13 +106,14 @@ const defaultSheetData = [
 const datasets = [
   {
     id: 1,
-    type: "360_image",
+    type: "360_video",
     header: "Plucking",
     data: [
       {
         id: 1,
-        type: "360_image",
-        image_url: "./1.jpg",
+        type: "360_video",
+        // image_url: "./1.jpg",
+        image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: 50,
           y_axis: -5,
@@ -165,16 +166,16 @@ const datasets = [
 
   {
     id: 3,
-    type: "360_image",
+    type: "360_video",
     header: "Tea Crafting",
     fov: 90,
     data: [
       {
         id: 1,
-        type: "360_image",
+        type: "360_video",
         image_url:
-          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
-          "Tea-Crafting.jpg",
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+          // "Tea-Crafting.jpg",
         screen_info: [
           {
             x_axis: 100,
@@ -190,14 +191,15 @@ const datasets = [
 
   {
     id: 4,
-    type: "360_image",
+    type: "360_video",
     header: "Sachet Making",
     data: [
       {
         id: 1,
-        type: "360_image",
-        image_url: "./Sachet.jpg",
-        // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+        type: "360_video",
+        image_url: 
+        // "./Sachet.jpg",
+        "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
       ...defaultSheetData,
     ],

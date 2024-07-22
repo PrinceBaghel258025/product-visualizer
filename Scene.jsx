@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Icon, Spinner, Stack, Text } from "@chakra-ui/react";
 import {
   Html,
   OrbitControls,
@@ -14,6 +14,32 @@ import { HeroSection } from "./HeroSection";
 import MediaContentIn360 from "./MediaContentIn360";
 import { SplashScreen } from "./generic/SplashScreen";
 import ScreenInfoCard from "./generic/ScreenInfoCard";
+import { useInView } from 'react-intersection-observer';
+import { RiLoader4Fill } from "react-icons/ri";
+
+const LoadingBox = () => (
+  <Box height={"100dvh"} width={"100dvw"} display={'flex'} justifyContent={'center'} borderWidth={4} alignItems={'center'}>
+    <Box className="animate-pulse" >
+      <Spinner
+        thickness='4px'
+        speed='0.65s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='xl'
+      />
+    </Box>
+  </Box>
+)
+
+
+function Loading() {
+  return (
+    <Html>
+      <LoadingBox />
+    </Html>
+  );
+}
+
 
 const ImageSphere = ({
   data,
@@ -142,7 +168,7 @@ const VideoSphere = ({
 const Sphere = ({ data, setIsInteracting, isBottomSheetOpen }) => {
   const image_360 = data?.find((info) => info?.type === "360_image");
   const video_360 = data?.find((info) => info?.type === "360_video");
-
+  console.log("value of changing from sphere")
   if (image_360) {
     return (
       <ImageSphere
@@ -176,32 +202,41 @@ export const Scene = ({ data, setIsInteracting, header, fov }) => {
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
+  const { ref, inView } = useInView({
+    threshold: 0.6, onChange: (inView, entry) => {
+      console.log("value of changing view", header, inView, entry)
+    }
+    // triggerOnce: true, // Only trigger once for optimization
+  });
 
+  console.log("value of inView", header, inView)
   return (
-    <Box w={"100dvw"} h={"100dvh"}>
-      <Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
-        <ambientLight intensity={0.1} />
-        <Suspense fallback={null}>
-          {data && (
-            <Sphere
-              setIsInteracting={setIsInteracting}
-              data={data}
-              isBottomSheetOpen={isBottomSheetOpen}
-            />
+    <Box ref={ref} w={"100dvw"} h={"100dvh"}>
+      {inView ?
+        <><Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
+          <ambientLight intensity={0.1} />
+          <Suspense fallback={Loading}>
+            {data && (
+              <Sphere
+                setIsInteracting={setIsInteracting}
+                data={data}
+                isBottomSheetOpen={isBottomSheetOpen}
+              />
+            )}
+          </Suspense>
+          <OrbitControls enableRotate={true} enableZoom={false} />
+          <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
+        </Canvas>
+          {isInsideSphere && (
+            <>
+              <HeroSection header={header}
+                data={data}
+                setIsBottomSheetOpen={(val) => { setIsBottomSheetOpen(val); setIsInteracting(!val) }}
+              />
+              <SplashScreen inScene />
+            </>
           )}
-        </Suspense>
-        <OrbitControls enableRotate={true} enableZoom={false} />
-        <FrameUpdater setIsInsideSphere={setIsInsideSphere} />
-      </Canvas>
-      {isInsideSphere && (
-        <>
-          <HeroSection header={header}
-            data={data}
-            setIsBottomSheetOpen={(val) => { setIsBottomSheetOpen(val); setIsInteracting(!val) }}
-          />
-          <SplashScreen inScene />
-        </>
-      )}
+        </> : <LoadingBox />}
     </Box>
   );
 };

@@ -53,7 +53,6 @@ export const HeroSection = ({
   //   };
   // }, []);
 
-  console.log("loggin from scene", header);
   return (
     <>
       <Box position={"absolute"} top={"6%"} minWidth={"100dvw"}>
