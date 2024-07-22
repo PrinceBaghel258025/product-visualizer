@@ -29,7 +29,7 @@ const ScreenInfoCard = ({ data }) => {
         boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
         borderRadius={50}
         backgroundColor={"rgb(255,255,255,0.7)"}
-        display={showUserInfo ? "flex" : "none"}
+        display={!showUserInfo ? "flex" : "none"}
         initial={{
           opacity: 0,
           y: 50,
@@ -53,7 +53,7 @@ const ScreenInfoCard = ({ data }) => {
         <IoInformationCircleOutline fontSize={28} />
       </Box>
 
-      {!showUserInfo && (
+      {showUserInfo && (
         <Flex
           as={motion.div}
           position={"absolute"}
