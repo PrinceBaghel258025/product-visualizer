@@ -112,7 +112,7 @@ const datasets = [
       {
         id: 1,
         type: "360_image",
-        image_url: "./1.png",
+        image_url: "./1.jpg",
         farmer_info: {
           x_axis: 50,
           y_axis: -5,
@@ -174,7 +174,7 @@ const datasets = [
         type: "360_image",
         image_url:
           // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
-          "Tea-Crafting.png",
+          "Tea-Crafting.jpg",
         screen_info: [
           {
             x_axis: 100,
@@ -196,7 +196,7 @@ const datasets = [
       {
         id: 1,
         type: "360_image",
-        image_url: "./Sachet.png",
+        image_url: "./Sachet.jpg",
         // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
       ...defaultSheetData,
