@@ -1,10 +1,23 @@
-import { Box, Flex, IconButton, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  IconButton,
+  Image,
+  keyframes,
+  Text,
+} from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { IoInformationCircleOutline } from "react-icons/io5";
 
 const ScreenInfoCard = ({ data }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
+
+  const pulse = keyframes`
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 1); }
+  50% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+`;
 
   return (
     <Box position={"relative"}>
@@ -32,6 +45,9 @@ const ScreenInfoCard = ({ data }) => {
         }}
         onClick={() => {
           setShowUserInfo((prev) => !prev);
+        }}
+        sx={{
+          animation: `${pulse} 2s infinite`,
         }}
       >
         <IoInformationCircleOutline fontSize={28} />

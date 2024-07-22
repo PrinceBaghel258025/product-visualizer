@@ -8,110 +8,111 @@ import { CustomNextArrow, CustomPrevArrow } from "./CustomArrow";
 import { Stack, Text } from "@chakra-ui/react";
 import ImageScreen from "./ImageScreen";
 import VideoScreen from "./VideoScreen";
-const defaultSheetData = [{
-  id: 2,
-  type: "text_content",
-  text_content: {
-    name: "Wondering what you just saw?",
-    content:
-      "You can see the exact tea garden from where the box in your hand was processed! That is how transparent we are about our minimally hand processed tea!",
-  },
-},
-{
-  id: 3,
-  type: "image_content",
-  image_urls: [
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(1).jpeg",
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(2).jpeg",
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(3).jpeg",
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(5).jpeg",
-  ],
-},
-{
-  id: 4,
-  type: "text_content",
-  text_content: {
-    name: "What makes the tea box in your hand so special?",
-    content:
-      "Woolah TrueDips is nothing like you have ever tasted or experienced. Woolah TrueDips is the World’s First Bagless Tea, which in the shape of a tablet locks in the most authentic and exotic Assam tea flavours you have ever tasted.",
-  },
-},
-{
-  id: 5,
-  type: "video_content",
-  video_urls: [
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/videos/WOOLAH+TEA+FEATURE_+THE+PLATE+-+upamanyu+borkakoty.mp4",
-  ],
-},
-{
-  id: 6,
-  type: "text_content",
-  text_content: {
-    name: "‘Source transparency’ for you, the consumer:",
-    content:
-      "In the heart of Woolah is a meticulously curated value chain which provides gainful earning sources to organically grown micro tea farm owners, tea workers, packaging specialists. It has also delegated women workers to participate and earn a livelihood for themselves. \n              Woolah also contributes towards funding quality education for the children of tea workers. The idea is to empower our smallholder tea growers with more visibility, while keeping our sourcing 100% transparent for our consumers!\n              ",
-  },
-},
-{
-  id: 7,
-  type: "header",
-  header_text: "Our Team",
-},
-{
-  id: 8,
-  type: "image_content",
-  image_urls: [
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(4).jpeg",
-  ],
-},
-{
-  type: "brand_banner",
-  brand_banner:
-    "https://360-images-v1.s3.ap-south-1.amazonaws.com/Woolah_banner2.webp",
-},
-{
-  link: {
-    url: "https://woolahtea.com/products/rare-assam-green-tea",
-    label: "View Product",
-  },
-  type: "redirect_url",
-},
-{
-  type: "social_links",
-  social_links: [
-    {
-      url: "https://www.youtube.com/@woolahtea",
-      label: "Youtube",
-      thumbnail:
-        "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/youtube.png",
+const defaultSheetData = [
+  {
+    id: 2,
+    type: "text_content",
+    text_content: {
+      name: "Wondering what you just saw?",
+      content:
+        "You can see the exact tea garden from where the box in your hand was processed! That is how transparent we are about our minimally hand processed tea!",
     },
-    {
-      url: "https://www.facebook.com/WoolahTea/",
-      label: "Facebook",
-      thumbnail:
-        "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/facebook.png",
+  },
+  {
+    id: 3,
+    type: "image_content",
+    image_urls: [
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(1).jpeg",
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(2).jpeg",
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(3).jpeg",
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(5).jpeg",
+    ],
+  },
+  {
+    id: 4,
+    type: "text_content",
+    text_content: {
+      name: "What makes the tea box in your hand so special?",
+      content:
+        "Woolah TrueDips is nothing like you have ever tasted or experienced. Woolah TrueDips is the World’s First Bagless Tea, which in the shape of a tablet locks in the most authentic and exotic Assam tea flavours you have ever tasted.",
     },
-    {
-      url: "https://www.instagram.com/be_woolah/",
-      label: "Instagram",
-      thumbnail:
-        "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/instagram.png",
+  },
+  {
+    id: 5,
+    type: "video_content",
+    video_urls: [
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/videos/WOOLAH+TEA+FEATURE_+THE+PLATE+-+upamanyu+borkakoty.mp4",
+    ],
+  },
+  {
+    id: 6,
+    type: "text_content",
+    text_content: {
+      name: "‘Source transparency’ for you, the consumer:",
+      content:
+        "In the heart of Woolah is a meticulously curated value chain which provides gainful earning sources to organically grown micro tea farm owners, tea workers, packaging specialists. It has also delegated women workers to participate and earn a livelihood for themselves. \n              Woolah also contributes towards funding quality education for the children of tea workers. The idea is to empower our smallholder tea growers with more visibility, while keeping our sourcing 100% transparent for our consumers!\n              ",
     },
-  ],
-},]
+  },
+  {
+    id: 7,
+    type: "header",
+    header_text: "Our Team",
+  },
+  {
+    id: 8,
+    type: "image_content",
+    image_urls: [
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/images/Woolah+farm+(4).jpeg",
+    ],
+  },
+  {
+    type: "brand_banner",
+    brand_banner:
+      "https://360-images-v1.s3.ap-south-1.amazonaws.com/Woolah_banner2.webp",
+  },
+  {
+    link: {
+      url: "https://woolahtea.com/products/rare-assam-green-tea",
+      label: "View Product",
+    },
+    type: "redirect_url",
+  },
+  {
+    type: "social_links",
+    social_links: [
+      {
+        url: "https://www.youtube.com/@woolahtea",
+        label: "Youtube",
+        thumbnail:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/youtube.png",
+      },
+      {
+        url: "https://www.facebook.com/WoolahTea/",
+        label: "Facebook",
+        thumbnail:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/facebook.png",
+      },
+      {
+        url: "https://www.instagram.com/be_woolah/",
+        label: "Instagram",
+        thumbnail:
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/social_icons/instagram.png",
+      },
+    ],
+  },
+];
 const datasets = [
   {
     id: 1,
     type: "360_image",
-    header: 'Plucking',
+    header: "Plucking",
     data: [
       {
         id: 1,
         type: "360_image",
-        image_url:
-          "./1.png",
+        image_url: "./1.png",
         farmer_info: {
-          x_axis: -50,
+          x_axis: 50,
           y_axis: -5,
           z_axis: 50,
           age: 45,
@@ -122,28 +123,28 @@ const datasets = [
         },
         screen_info: [
           {
-            x_axis: 50,
-            y_axis: -20,
-            z_axis: 50,
+            x_axis: 100,
+            y_axis: -60,
+            z_axis: -100,
             info: `Only the top tender two leaves and a bud are meticulously plucked by skilled workers perfected over years of working in the farm. Its is also known as the Gold Standard of Tea Plucking. `,
           },
           {
-            x_axis: 50,
-            y_axis: 20,
-            z_axis: -50,
+            x_axis: 0,
+            y_axis: 70,
+            z_axis: -220,
             info: `High Nutritive Value: The young leaves and buds contain a high concentration of polyphenols, especially catechins, which are powerful antioxidants. These compounds help protect the body against free radical damage. Theanine is an amino acid found in higher concentrations in young tea leaves. It has a calming effect on the brain and can enhance focus and concentration.
             Regenerative Natural Farming: At Woolah Tea, we grow our teas organically without chemicals, using regenerative methods to enhance soil health and biodiversity. By adopting sustainable practices like natural pest control and renewable energy, we aim to cut down on our carbon footprint. Our commitment ensures that you enjoy pure, nutrient-rich teas while supporting a healthier planet and local communities.`,
           },
         ],
       },
-      ...defaultSheetData
+      ...defaultSheetData,
     ],
   },
 
   {
     id: 2,
     type: "2d_video",
-    header: 'Withering',
+    header: "Withering",
     data: [
       {
         id: 1,
@@ -151,19 +152,19 @@ const datasets = [
         image_url:
           "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
         screen_info: {
-          x_axis: 85,
+          x_axis: 120,
           y_axis: 250,
           info: "Unlike mass-produced commodity teas, we follow traditional and natural withering processes in small batches. It helps in controlled dehydration or moisture reduction of the leaves and helps in flavour development. Fresh oxygen comes in contact with the leaves to do the magic.",
         },
       },
-      ...defaultSheetData
+      ...defaultSheetData,
     ],
   },
 
   {
     id: 3,
     type: "360_image",
-    header: 'Tea Crafting',
+    header: "Tea Crafting",
     fov: 90,
     data: [
       {
@@ -174,30 +175,29 @@ const datasets = [
           "Tea-Crafting.png",
         screen_info: [
           {
-            x_axis: 50,
-            y_axis: -20,
-            z_axis: 50,
+            x_axis: 100,
+            y_axis: -50,
+            z_axis: -80,
             info: "Sorting & tying of the finest tea leaves Weighing of the leaves Compressing of the tea dips Sachet Packaging",
           },
         ],
       },
-      ...defaultSheetData
+      ...defaultSheetData,
     ],
   },
 
   {
     id: 4,
     type: "360_image",
-    header: 'Sachet Making',
+    header: "Sachet Making",
     data: [
       {
         id: 1,
         type: "360_image",
-        image_url:
-          "./Sachet.png",
-          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+        image_url: "./Sachet.png",
+        // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
-      ...defaultSheetData
+      ...defaultSheetData,
     ],
   },
 ];
@@ -249,7 +249,8 @@ const CarouselComponent = ({ productData }) => {
           return (
             <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
-                <Scene fov={dataset?.fov}
+                <Scene
+                  fov={dataset?.fov}
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}
@@ -265,11 +266,19 @@ const CarouselComponent = ({ productData }) => {
               )}
 
               {dataset?.type === "2d_image" && (
-                <ImageScreen header={dataset?.header} setIsInteracting={setIsInteracting} data={dataset?.data} />
+                <ImageScreen
+                  header={dataset?.header}
+                  setIsInteracting={setIsInteracting}
+                  data={dataset?.data}
+                />
               )}
 
               {dataset?.type === "2d_video" && (
-                <VideoScreen header={dataset?.header} setIsInteracting={setIsInteracting} data={dataset?.data} />
+                <VideoScreen
+                  header={dataset?.header}
+                  setIsInteracting={setIsInteracting}
+                  data={dataset?.data}
+                />
               )}
             </Stack>
           );
