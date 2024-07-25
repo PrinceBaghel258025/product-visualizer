@@ -116,7 +116,8 @@ const datasets = [
         // image_url: "./pano.mp4",
         // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721884437/Hand_Plucking_1_cmvw5q.mp4",
         // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721885832/20240725_104615_509_1_tnkfri.mp4",
-        image_url: "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
+        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
+        image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721891660/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
         // image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: 50,
