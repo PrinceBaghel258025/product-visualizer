@@ -8,7 +8,7 @@ const VideoScreen = ({header, data, setIsInteracting }) => {
   return (
     <Box position={"relative"} w={"100dvw"} h={"100dvh"}>
       <Box>
-        <video style={{ minHeight: "100dvh", objectFit: 'fill' }}
+        <video style={{ height: "100dvh", objectFit: 'fill' }}
           src={videoUrl?.image_url}
           // controls
           autoPlay
