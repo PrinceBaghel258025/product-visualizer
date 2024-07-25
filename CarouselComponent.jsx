@@ -207,7 +207,8 @@ const datasets = [
         type: "360_video",
         image_url:
           // "./Sachet.jpg",
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+          "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto/v1/higher_quality/pfhy4kwquhobv0tcn2uv",
       },
       ...defaultSheetData,
     ],
