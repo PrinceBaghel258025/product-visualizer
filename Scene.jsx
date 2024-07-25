@@ -17,7 +17,7 @@ import ScreenInfoCard from "./generic/ScreenInfoCard";
 import { useInView } from 'react-intersection-observer';
 import { RiLoader4Fill } from "react-icons/ri";
 
-const LoadingBox = () => (
+export const LoadingBox = () => (
   <Box height={"100dvh"} width={"100dvw"} display={'flex'} justifyContent={'center'} borderWidth={4} alignItems={'center'}>
     <Box className="animate-pulse" >
       <Spinner
