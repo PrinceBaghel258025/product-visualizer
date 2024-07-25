@@ -214,7 +214,7 @@ export const Scene = ({ data, setIsInteracting, header, fov }) => {
     <Box ref={ref} w={"100dvw"} h={"100dvh"}>
       {inView ?
         <><Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
-          <ambientLight intensity={0.1} />
+          <ambientLight intensity={1} />
           <Suspense fallback={Loading}>
             {data && (
               <Sphere
