@@ -113,7 +113,9 @@ const datasets = [
         id: 1,
         type: "360_video",
         // image_url: "./1.jpg",
-        image_url: "./pano.mp4",
+        // image_url: "./pano.mp4",
+        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721884437/Hand_Plucking_1_cmvw5q.mp4",
+        image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721885832/20240725_104615_509_1_tnkfri.mp4",
         // image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: 50,
@@ -154,7 +156,9 @@ const datasets = [
         id: 1,
         type: "2d_video",
         image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
+          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
+          // "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
+          "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
         screen_info: {
           x_axis: 120,
           y_axis: 250,
@@ -176,8 +180,8 @@ const datasets = [
         type: "360_video",
         image_url:
           // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
-          "./pano.mp4",
-          // "Tea-Crafting.jpg",
+          "https://res.cloudinary.com/djzloojxk/video/upload/v1721885780/20240725_105636_971_1_n5petf.mp4",
+        // "Tea-Crafting.jpg",
         screen_info: [
           {
             x_axis: 100,
@@ -199,9 +203,9 @@ const datasets = [
       {
         id: 1,
         type: "360_video",
-        image_url: 
-        // "./Sachet.jpg",
-        "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
+        image_url:
+          // "./Sachet.jpg",
+          "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
       },
       ...defaultSheetData,
     ],
