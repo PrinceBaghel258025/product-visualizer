@@ -113,7 +113,8 @@ const datasets = [
         id: 1,
         type: "360_video",
         // image_url: "./1.jpg",
-        image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
+        image_url: "./pano.mp4",
+        // image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: 50,
           y_axis: -5,
@@ -174,7 +175,8 @@ const datasets = [
         id: 1,
         type: "360_video",
         image_url:
-          "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
+          "./pano.mp4",
           // "Tea-Crafting.jpg",
         screen_info: [
           {
