@@ -116,7 +116,7 @@ const datasets = [
         // image_url: "./pano.mp4",
         // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721884437/Hand_Plucking_1_cmvw5q.mp4",
         // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721885832/20240725_104615_509_1_tnkfri.mp4",
-        image_url: "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto/v1/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
+        image_url: "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
         // image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
         farmer_info: {
           x_axis: 50,
@@ -182,7 +182,7 @@ const datasets = [
         image_url:
           // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
           // "https://res.cloudinary.com/djzloojxk/video/upload/v1721885780/20240725_105636_971_1_n5petf.mp4",
-          "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto/v1/higher_quality/abzl1dfyuwnexfmevnap",
+          "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/abzl1dfyuwnexfmevnap",
         // "Tea-Crafting.jpg",
         screen_info: [
           {
@@ -208,7 +208,7 @@ const datasets = [
         image_url:
           // "./Sachet.jpg",
           // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
-          "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto/v1/higher_quality/pfhy4kwquhobv0tcn2uv",
+          "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/pfhy4kwquhobv0tcn2uv",
       },
       ...defaultSheetData,
     ],
