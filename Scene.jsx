@@ -252,7 +252,7 @@ export const Scene = ({ data, setIsInteracting, header, fov, targetRotation }) =
                 data={data}
                 setIsBottomSheetOpen={(val) => { setIsBottomSheetOpen(val); setIsInteracting(!val) }}
               />
-              <SplashScreen inScene />
+              {/* <SplashScreen inScene /> */}
             </>
           )}
         </> : <LoadingBox />}
