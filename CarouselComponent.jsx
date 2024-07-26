@@ -152,17 +152,18 @@ const datasets = [
 
   {
     id: 2,
-    type: "2d_image",
+    type: "2d_video",
     header: "Withering",
     data: [
       {
         id: 1,
-        type: "2d_image",
+        type: "2d_video",
         image_url:
           // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
           // "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
           // "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
-          "https://res.cloudinary.com/djzloojxk/image/upload/f_auto,q_auto/v1/higher_quality/zhzevghdwxlu92vybfhv",
+          // "https://res.cloudinary.com/djzloojxk/image/upload/f_auto,q_auto/v1/higher_quality/zhzevghdwxlu92vybfhv",
+          "./Withering_Clipchamp.mp4",
         screen_info: {
           x_axis: 120,
           y_axis: 250,
