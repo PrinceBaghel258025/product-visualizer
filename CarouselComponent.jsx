@@ -108,6 +108,7 @@ const datasets = [
     id: 1,
     type: "360_video",
     header: "Plucking",
+    targetRotation: 1.9198621771937625, //110 degree
     data: [
       {
         id: 1,
@@ -203,6 +204,7 @@ const datasets = [
     id: 4,
     type: "360_video",
     header: "Sachet Making",
+    targetRotation: 0.8726646259971648, // 50 degree
     data: [
       {
         id: 1,
@@ -266,6 +268,7 @@ const CarouselComponent = ({ productData }) => {
             <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
                 <Scene
+                  targetRotation={dataset?.targetRotation}
                   fov={dataset?.fov}
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
@@ -277,6 +280,7 @@ const CarouselComponent = ({ productData }) => {
 
               {dataset?.type === "360_video" && (
                 <Scene
+                  targetRotation={dataset?.targetRotation}
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
                   data={dataset?.data}

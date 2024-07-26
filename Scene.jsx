@@ -8,7 +8,7 @@ import {
   useVideoTexture,
 } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import { HeroSection } from "./HeroSection";
 import MediaContentIn360 from "./MediaContentIn360";
@@ -106,11 +106,29 @@ const ImageSphere = ({
 const VideoSphere = ({
   data,
   image_url,
+  targetRotation,
   setIsInteracting,
   isBottomSheetOpen,
 }) => {
   const { gl } = useThree();
   let videoTexture = useVideoTexture(image_url);
+  const meshRef = useRef();
+
+
+  // const [rotated, setRotated] = useState(false);
+  // useFrame(() => {
+  //   if (meshRef.current && !rotated) {
+  //     meshRef.current.rotation.y += 0.01;
+  //     if (meshRef.current.rotation.y >= targetRotation) {
+  //       setRotated(true); // Stop rotating once the target rotation is reached
+  //     }
+  //   }
+  // });
+  useEffect(() => {
+    if (meshRef.current && targetRotation) {
+      meshRef.current.rotation.y = targetRotation;
+    }
+  }, []);
 
   useEffect(() => {
     const handlePointerDown = () => setIsInteracting(true);
@@ -130,7 +148,7 @@ const VideoSphere = ({
       {videoTexture ? (
         <>
           <ambientLight intensity={2} />
-          <mesh>
+          <mesh ref={meshRef}>
             <sphereGeometry args={[1, 100, 100]} />
             <meshStandardMaterial map={videoTexture} side={THREE.DoubleSide} />
           </mesh>
@@ -165,13 +183,13 @@ const VideoSphere = ({
   );
 };
 
-const Sphere = ({ data, setIsInteracting, isBottomSheetOpen }) => {
+const Sphere = ({ data, setIsInteracting, isBottomSheetOpen, targetRotation }) => {
   const image_360 = data?.find((info) => info?.type === "360_image");
   const video_360 = data?.find((info) => info?.type === "360_video");
   console.log("value of changing from sphere")
   if (image_360) {
     return (
-      <ImageSphere
+      <ImageSphere targetRotation={targetRotation}
         data={image_360}
         setIsInteracting={setIsInteracting}
         image_url={image_360?.image_url}
@@ -180,7 +198,7 @@ const Sphere = ({ data, setIsInteracting, isBottomSheetOpen }) => {
     );
   } else if (video_360) {
     return (
-      <VideoSphere
+      <VideoSphere targetRotation={targetRotation}
         data={video_360}
         setIsInteracting={setIsInteracting}
         image_url={video_360?.image_url}
@@ -197,7 +215,7 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
   return null;
 };
 
-export const Scene = ({ data, setIsInteracting, header, fov }) => {
+export const Scene = ({ data, setIsInteracting, header, fov, targetRotation }) => {
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
@@ -218,6 +236,7 @@ export const Scene = ({ data, setIsInteracting, header, fov }) => {
           <Suspense fallback={Loading}>
             {data && (
               <Sphere
+                targetRotation={targetRotation}
                 setIsInteracting={setIsInteracting}
                 data={data}
                 isBottomSheetOpen={isBottomSheetOpen}
