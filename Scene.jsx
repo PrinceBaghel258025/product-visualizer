@@ -215,10 +215,9 @@ const FrameUpdater = ({ setIsInsideSphere }) => {
   return null;
 };
 
-export const Scene = ({ data, setIsInteracting, header, fov, targetRotation }) => {
+export const Scene = ({ data,isBottomSheetOpen, setIsBottomSheetOpen, setIsInteracting, header, fov, targetRotation, zoom=1 }) => {
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   const { ref, inView } = useInView({
     threshold: 0.6, onChange: (inView, entry) => {
@@ -231,7 +230,7 @@ export const Scene = ({ data, setIsInteracting, header, fov, targetRotation }) =
   return (
     <Box ref={ref} w={"100dvw"} h={"100dvh"}>
       {inView ?
-        <><Canvas camera={{ position: [0, 0, 0.001], fov: 70 }}>
+        <><Canvas camera={{ position: [0, 0, 0.001], fov: 70, zoom: [zoom] }}>
           <ambientLight intensity={1} />
           <Suspense fallback={Loading}>
             {data && (

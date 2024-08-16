@@ -25,10 +25,12 @@ const ScreenInfoCard = ({ data }) => {
         as={motion.div}
         position={"absolute"}
         top={0}
-        border={"1px solid white"}
-        boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
+        // border={"1px solid white"}
+        boxShadow={"0px 0px 15px 8px #FF00F7"}
+        // boxShadow={"0px 0px 15px 8px rgba(255,255,255,0.6)"}
         borderRadius={50}
-        backgroundColor={"rgb(255,255,255,0.7)"}
+        // backgroundColor={"rgb(255,255,255,0.7)"}
+        backgroundColor={"#f9f871"}
         display={!showUserInfo ? "flex" : "none"}
         initial={{
           opacity: 0,
@@ -50,7 +52,7 @@ const ScreenInfoCard = ({ data }) => {
           animation: `${pulse} 2s infinite`,
         }}
       >
-        <IoInformationCircleOutline fontSize={28} />
+        <IoInformationCircleOutline  fontSize={28} />
       </Box>
 
       {showUserInfo && (
@@ -91,8 +93,8 @@ const ScreenInfoCard = ({ data }) => {
             fontWeight={500}
             fontSize={"small"}
           >
-            <Text mb={0} fontSize={12}>
-              {data?.info}
+            <Text display={"inline"} mb={0} fontSize={12}>
+              <Text fontSize={14}   fontWeight={"900"}>{data?.header}: </Text><Text>{data?.info}</Text>
             </Text>
           </Box>
         </Flex>

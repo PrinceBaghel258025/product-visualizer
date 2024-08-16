@@ -109,41 +109,33 @@ const datasets = [
     type: "360_video",
     header: "Plucking",
     targetRotation: 1.9198621771937625, //110 degree
+    zoom: 0.45,
     data: [
       {
         id: 1,
         type: "360_video",
-        // image_url: "./1.jpg",
-        // image_url: "./pano.mp4",
-        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721884437/Hand_Plucking_1_cmvw5q.mp4",
-        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721885832/20240725_104615_509_1_tnkfri.mp4",
-        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
-        // image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1721891660/higher_quality/ykws9ndefvseeqlnfd1l.mp4",
         image_url: "https://res.cloudinary.com/djzloojxk/video/upload/v1722403644/higher_quality/ad7f9tqae2obcd3jrikw.mp4",
-        // image_url: "https://360-images-v1.s3.ap-south-1.amazonaws.com/Hand+Plucking.mp4",
-        farmer_info: {
-          x_axis: 50,
-          y_axis: -5,
-          z_axis: 50,
-          age: 45,
-          name: "Sailen Phukan",
-          image:
-            "https://360-images-v1.s3.ap-south-1.amazonaws.com/consumer_app/360_media/farmer.jpg",
-          location: "GP Tea Farm",
-        },
         screen_info: [
           {
             x_axis: 100,
             y_axis: -60,
             z_axis: -100,
-            info: `Only the top tender two leaves and a bud are meticulously plucked by skilled workers perfected over years of working in the farm. Its is also known as the Gold Standard of Tea Plucking. `,
+            header: "Tea Plucking",
+            info: `Expertly hand-picked, only the youngest and most tender 2 leaves and a bud are plucked.They are also known as the ‘Gold Standard of Tea Plucking’.`,
           },
           {
-            x_axis: 0,
-            y_axis: 70,
-            z_axis: -220,
-            info: `High Nutritive Value: The young leaves and buds contain a high concentration of polyphenols, especially catechins, which are powerful antioxidants. These compounds help protect the body against free radical damage. Theanine is an amino acid found in higher concentrations in young tea leaves. It has a calming effect on the brain and can enhance focus and concentration.
-            Regenerative Natural Farming: At Woolah Tea, we grow our teas organically without chemicals, using regenerative methods to enhance soil health and biodiversity. By adopting sustainable practices like natural pest control and renewable energy, we aim to cut down on our carbon footprint. Our commitment ensures that you enjoy pure, nutrient-rich teas while supporting a healthier planet and local communities.`,
+            x_axis: 200,
+            y_axis: -100,
+            z_axis: -100,
+            header: "Nutritional Benefits",
+            info: `Packed with antioxidants, our tea's young leaves are rich in polyphenols, known to combat harmful free radicals in our body`,
+          },
+          {
+            x_axis: -150,
+            y_axis: -60,
+            z_axis: -250,
+            header: "Sustainable Farming",
+            info: `Grown organically without chemicals, our tea is produced sustainably using renewable energy to minimize our environmental impact.`,
           },
         ],
       },
@@ -155,20 +147,18 @@ const datasets = [
     id: 2,
     type: "2d_video",
     header: "Withering",
+    zoom: 1,
     data: [
       {
         id: 1,
         type: "2d_video",
         image_url:
-          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Natural+withering.mp4",
-          // "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
-          // "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
-          // "https://res.cloudinary.com/djzloojxk/image/upload/f_auto,q_auto/v1/higher_quality/zhzevghdwxlu92vybfhv",
-          "./Withering_Clipchamp.mp4",
+          "https://res.cloudinary.com/djzloojxk/video/upload/v1721884633/Natural_withering_o5appn.mp4",
         screen_info: {
-          x_axis: 120,
-          y_axis: 250,
-          info: "Unlike mass-produced commodity teas, we follow traditional and natural withering processes in small batches. It helps in controlled dehydration or moisture reduction of the leaves and helps in flavour development. Fresh oxygen comes in contact with the leaves to do the magic.",
+          x_axis: 180,
+          y_axis: 500,
+          header: "Small Batches",
+          info: "Unlike mass-produced teas, our small batches undergo a traditional withering process. This careful drying enhances the tea’s natural flavor.",
         },
       },
       ...defaultSheetData,
@@ -180,21 +170,34 @@ const datasets = [
     type: "360_video",
     header: "Tea Crafting",
     fov: 90,
+    zoom: 1,
     data: [
       {
         id: 1,
         type: "360_video",
         image_url:
-          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/test_360video.mp4",
-          // "https://res.cloudinary.com/djzloojxk/video/upload/v1721885780/20240725_105636_971_1_n5petf.mp4",
           "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/abzl1dfyuwnexfmevnap",
-        // "Tea-Crafting.jpg",
         screen_info: [
           {
             x_axis: 100,
             y_axis: -50,
             z_axis: -80,
-            info: "Sorting & tying of the finest tea leaves Weighing of the leaves Compressing of the tea dips Sachet Packaging",
+            header: "Sorting & tying of the finest tea leaves",
+            info: "Meticulously hand-sorted and tied, a testament to our dedication to quality",
+          },
+          {
+            x_axis: 0,
+            y_axis: -90,
+            z_axis: 180,
+            header: "Weighing of the leaves",
+            info: "Precisely measured to perfection, ensuring consistency in every cup",
+          },
+          {
+            x_axis: -20,
+            y_axis: -35,
+            z_axis: -90,
+            header: "Compressing of the tea dips",
+            info: "Gently pressed to retain freshness, a harmonious blend of art and science",
           },
         ],
       },
@@ -207,14 +210,36 @@ const datasets = [
     type: "360_video",
     header: "Sachet Making",
     targetRotation: 0.8726646259971648, // 50 degree
+    zoom: 1,
     data: [
       {
         id: 1,
         type: "360_video",
         image_url:
-          // "./Sachet.jpg",
-          // "https://360-images-v1.s3.ap-south-1.amazonaws.com/Sachet_packing.mp4",
           "https://res.cloudinary.com/djzloojxk/video/upload/f_auto:video,q_auto:best/v1/higher_quality/pfhy4kwquhobv0tcn2uv",
+        screen_info: [
+          {
+            x_axis: 100,
+            y_axis: -50,
+            z_axis: -80,
+            header: "Sorting & tying of the finest tea leaves",
+            info: "Meticulously hand-sorted and tied, a testament to our dedication to quality",
+          },
+          {
+            x_axis: 100,
+            y_axis: 50,
+            z_axis: -80,
+            header: "Weighing of the leaves",
+            info: "Precisely measured to perfection, ensuring consistency in every cup",
+          },
+          {
+            x_axis: -100,
+            y_axis: -50,
+            z_axis: -80,
+            header: "Compressing of the tea dips",
+            info: "Gently pressed to retain freshness, a harmonious blend of art and science",
+          },
+        ],
       },
       ...defaultSheetData,
     ],
@@ -270,6 +295,7 @@ const CarouselComponent = ({ productData }) => {
             <Stack key={dataset.id}>
               {dataset?.type === "360_image" && (
                 <Scene
+                  zoom={dataset?.zoom || 1}
                   targetRotation={dataset?.targetRotation}
                   fov={dataset?.fov}
                   header={dataset?.header}
@@ -282,6 +308,7 @@ const CarouselComponent = ({ productData }) => {
 
               {dataset?.type === "360_video" && (
                 <Scene
+                zoom={dataset?.zoom || 1}
                   targetRotation={dataset?.targetRotation}
                   header={dataset?.header}
                   setIsInteracting={setIsInteracting}
