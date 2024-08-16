@@ -43,26 +43,16 @@ export const HeroSection = ({
 
   const redirect_url = data?.find((info) => info?.type === "redirect_url");
 
-  // useEffect(() => {
-  //   const iconTimer = setTimeout(() => {
-  //     setShowIcon(false);
-  //   }, 8000);
 
-  //   return () => {
-  //     clearTimeout(iconTimer);
-  //   };
-  // }, []);
-
-  console.log("loggin from scene", header);
   return (
     <>
-      <Box position={"absolute"} top={"6%"} minWidth={"100dvw"}>
+      <Box position={"absolute"} top={"10%"} minWidth={"100dvw"}>
         <Flex justifyContent={"center"}>
           <Box
             paddingX={5}
             borderRadius={10}
             fontWeight={500}
-            bg={"rgb(255, 255, 255, 0.8)"}
+            bg={"#00FFF2"}
           >
             {header ? <Text>{header}</Text> : null}
           </Box>
