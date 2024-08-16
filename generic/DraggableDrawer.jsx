@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { animated, useSpring } from "@react-spring/web";
 import { useDrag } from "react-use-gesture/dist";
@@ -21,7 +21,11 @@ const dampedSpring = { tension: 247, friction: 33 };
 
 const [COLLAPSED, FULL_EXPANDED] = [0, 1];
 
-export default function DraggableDrawer({ children, data }) {
+export default function DraggableDrawer({
+  children,
+  data,
+  setIsBottomSheetOpen,
+}) {
   const { height } = useWindowSize();
   const level = React.useMemo(
     () => [0, -(height - 80), -(height - 80)],
@@ -32,7 +36,7 @@ export default function DraggableDrawer({ children, data }) {
 
   // Initial value settings
   const [{ y }, set] = useSpring(() => ({
-    y: 0,
+    y: -40,
     config: { tension: 250, friction: 30 },
   }));
 
@@ -42,7 +46,7 @@ export default function DraggableDrawer({ children, data }) {
   };
 
   const handleDrawerClose = () => {
-    set({ y: level[COLLAPSED], config: dampedSpring, immediate: false });
+    set({ y: -40, config: dampedSpring, immediate: false });
     setCurrent(COLLAPSED);
   };
 
@@ -72,7 +76,7 @@ export default function DraggableDrawer({ children, data }) {
         const projectedEndpoint = y.get() + projection(velocityY);
         const point = findNearestNumberInArray(projectedEndpoint, level);
         set({
-          y: point === level[COLLAPSED] ? 0 : point,
+          y: point === level[COLLAPSED] ? -40 : point,
           immediate: false,
           config: spring,
         });
@@ -103,6 +107,16 @@ export default function DraggableDrawer({ children, data }) {
   50% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 `;
+
+  useEffect(() => {
+    if (setIsBottomSheetOpen && typeof setIsBottomSheetOpen === "function") {
+      if (current === COLLAPSED) {
+        setIsBottomSheetOpen(true);
+      } else {
+        setIsBottomSheetOpen(false);
+      }
+    }
+  }, [current]);
 
   return (
     <>
@@ -142,13 +156,8 @@ export default function DraggableDrawer({ children, data }) {
 const BottomSheet = styled.div`
   touch-action: none;
   will-change: transform;
-  position: fixed;
-  top: calc(100vh - 60px);
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   border-radius: 18px 18px 0 0;
-
   background-color: rgba(255, 255, 255);
   border-top: 1px solid rgba(0, 0, 0, 0.25);
   box-shadow: 0 0 15px rgba(100, 100, 100, 0.25);
