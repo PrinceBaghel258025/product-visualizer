@@ -13,16 +13,18 @@ const VideoScreen = ({ header, data, setIsInteracting }) => {
     });
     setUrl(videoUrl?.image_url)
   }, [])
-  const { ref, inView } = useInView({
-    threshold: 0.6, onChange: (inView, entry) => {
-      console.log("value of changing view", header, inView, entry)
-    }
-    // triggerOnce: true, // Only trigger once for optimization
-  });
+  // const { ref, inView } = useInView({
+  //   threshold: 0.6, onChange: (inView, entry) => {
+  //     console.log("value of changing view", header, inView, entry)
+  //   }
+  //   // triggerOnce: true, // Only trigger once for optimization
+  // });
 
   return (
-    <Box ref={ref} position={"relative"} w={"100dvw"} h={"100dvh"}>
-      {inView ? <>
+    <Box position={"relative"} w={"100dvw"} h={"100dvh"}>
+    {/* <Box ref={ref} position={"relative"} w={"100dvw"} h={"100dvh"}> */}
+      {/* {inView ? */}
+       <>
         <Box>
           <video style={{ height: "100dvh", objectFit: 'fill' }}
             src={url}
@@ -34,8 +36,9 @@ const VideoScreen = ({ header, data, setIsInteracting }) => {
           />
         </Box>
         <HeroSection header={header} setIsBottomSheetOpen={(val) => setIsInteracting(!val)} data={data} isVideo />
-      </> : <LoadingBox />
-      }
+      </>
+      {/* //  : <LoadingBox /> */}
+      {/* } */}
     </Box>
   );
 };

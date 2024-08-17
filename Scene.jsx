@@ -219,17 +219,18 @@ export const Scene = ({ data,isBottomSheetOpen, setIsBottomSheetOpen, setIsInter
   const [isInsideSphere, setIsInsideSphere] = useState(true);
 
 
-  const { ref, inView } = useInView({
-    threshold: 0.6, onChange: (inView, entry) => {
-      console.log("value of changing view", header, inView, entry)
-    }
-    // triggerOnce: true, // Only trigger once for optimization
-  });
+  // const { ref, inView } = useInView({
+  //   threshold: 0.6, onChange: (inView, entry) => {
+  //     console.log("value of changing view", header, inView, entry)
+  //   }
+  //   // triggerOnce: true, // Only trigger once for optimization
+  // });
 
-  console.log("value of inView", header, inView)
+  // console.log("value of inView", header, inView)
   return (
-    <Box ref={ref} w={"100dvw"} h={"100dvh"}>
-      {inView ?
+    // <Box ref={ref} w={"100dvw"} h={"100dvh"}>
+    <Box w={"100dvw"} h={"100dvh"}>
+      {/* {inView ? */}
         <><Canvas camera={{ position: [0, 0, 0.001], fov: 70, zoom: [zoom] }}>
           <ambientLight intensity={1} />
           <Suspense fallback={Loading}>
@@ -254,7 +255,8 @@ export const Scene = ({ data,isBottomSheetOpen, setIsBottomSheetOpen, setIsInter
               {/* <SplashScreen inScene /> */}
             </>
           )}
-        </> : <LoadingBox />}
+        </>
+        {/* //  : <LoadingBox />} */}
     </Box>
   );
 };
