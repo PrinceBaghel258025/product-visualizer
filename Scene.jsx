@@ -186,7 +186,6 @@ const VideoSphere = ({
 const Sphere = ({ data, setIsInteracting, isBottomSheetOpen, targetRotation }) => {
   const image_360 = data?.find((info) => info?.type === "360_image");
   const video_360 = data?.find((info) => info?.type === "360_video");
-  console.log("value of changing from sphere")
   if (image_360) {
     return (
       <ImageSphere targetRotation={targetRotation}

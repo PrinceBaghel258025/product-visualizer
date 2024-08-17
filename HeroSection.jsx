@@ -78,7 +78,7 @@ export const HeroSection = ({
           bottom={imageScreen?.screen_info?.y_axis}
           left={imageScreen?.screen_info?.x_axis}
         >
-          <ScreenInfoCard data={imageScreen?.screen_info} />
+          <ScreenInfoCard left={imageScreen?.screen_info?.x_axis} data={imageScreen?.screen_info} />
         </Stack>
       )}
 
@@ -88,7 +88,7 @@ export const HeroSection = ({
           bottom={videoScreen?.screen_info?.y_axis}
           left={videoScreen?.screen_info?.x_axis}
         >
-          <ScreenInfoCard data={videoScreen?.screen_info} />
+          <ScreenInfoCard left={videoScreen?.screen_info?.x_axis} data={videoScreen?.screen_info} />
         </Stack>
       )}
 

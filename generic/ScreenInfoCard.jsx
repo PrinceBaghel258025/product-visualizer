@@ -7,10 +7,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { IoInformationCircleOutline, IoCloseOutline } from "react-icons/io5";
 
-const ScreenInfoCard = ({ data }) => {
+const ScreenInfoCard = ({ data, left = 0 }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
 
   const pulse = keyframes`
@@ -18,6 +18,26 @@ const ScreenInfoCard = ({ data }) => {
   50% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
   100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 `;
+
+  const cardRef = useRef(null);
+  const [maxWidth, setMaxWidth] = useState('auto');
+  useEffect(() => {
+    const updateMaxWidth = () => {
+      if (cardRef.current && left) {
+
+        const containerWidth = window.innerWidth;
+        const calculatedMaxWidth = containerWidth - left < 80 ? 80 : containerWidth - left;
+        setMaxWidth(`${calculatedMaxWidth}px`);
+      }
+    };
+
+    updateMaxWidth();
+    window.addEventListener('resize', updateMaxWidth);
+
+    return () => {
+      window.removeEventListener('resize', updateMaxWidth);
+    };
+  }, [left, showUserInfo]);
 
   return (
     <Box position={"relative"}>
@@ -52,11 +72,11 @@ const ScreenInfoCard = ({ data }) => {
           animation: `${pulse} 2s infinite`,
         }}
       >
-        <IoInformationCircleOutline  fontSize={28} />
+        <IoInformationCircleOutline fontSize={28} />
       </Box>
 
       {showUserInfo && (
-        <Flex
+        <Flex ref={cardRef}
           as={motion.div}
           position={"absolute"}
           top={-50}
@@ -94,10 +114,11 @@ const ScreenInfoCard = ({ data }) => {
             fontSize={"small"}
             position={"relative"}
             paddingX={"10px"}
+            maxWidth={maxWidth}
           >
-            <IoCloseOutline style={{ position: "absolute", right: 10, top: 8}} />
+            <IoCloseOutline style={{ position: "absolute", right: 10, top: 8 }} />
             <Text display={"inline"} mb={0} fontSize={12}>
-              <Text fontSize={14}   fontWeight={"900"}>{data?.header}</Text><Text>{data?.info}</Text>
+              <Text fontSize={14} fontWeight={"900"}>{data?.header}</Text><Text>{data?.info}</Text>
             </Text>
           </Box>
         </Flex>
