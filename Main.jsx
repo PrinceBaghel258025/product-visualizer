@@ -36,7 +36,6 @@ export const Main = () => {
     enterpriseName: urlEnterpriseName,
   });
 
-  console.log("from api productData: ", productData);
 
   return (
     <>
