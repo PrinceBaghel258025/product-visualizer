@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { IoInformationCircleOutline } from "react-icons/io5";
+import { IoInformationCircleOutline, IoCloseOutline } from "react-icons/io5";
 
 const ScreenInfoCard = ({ data }) => {
   const [showUserInfo, setShowUserInfo] = useState(false);
@@ -88,13 +88,16 @@ const ScreenInfoCard = ({ data }) => {
           <Box
             w={"fit-content"}
             bg={"rgb(255, 255, 255, 0.8)"}
-            p={4}
+            py={"10px"}
             borderRadius={10}
             fontWeight={500}
             fontSize={"small"}
+            position={"relative"}
+            paddingX={"10px"}
           >
+            <IoCloseOutline style={{ position: "absolute", right: 10, top: 8}} />
             <Text display={"inline"} mb={0} fontSize={12}>
-              <Text fontSize={14}   fontWeight={"900"}>{data?.header}: </Text><Text>{data?.info}</Text>
+              <Text fontSize={14}   fontWeight={"900"}>{data?.header}</Text><Text>{data?.info}</Text>
             </Text>
           </Box>
         </Flex>
